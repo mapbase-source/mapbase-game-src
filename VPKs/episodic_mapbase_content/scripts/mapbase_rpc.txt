@@ -1,0 +1,10 @@
+"MapbaseRPC"
+{
+	// Discord application ID
+	// Change this if you want something other than "Mapbase" to show up on players' Discord clients.
+	discord_appid "582595088719413250"
+
+
+	discord_largeimage "mb_logo_episodic"
+	discord_largeimage_text "Half-Life 2 Episodic"
+}

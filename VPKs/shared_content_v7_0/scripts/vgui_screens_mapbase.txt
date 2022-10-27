@@ -1,0 +1,24 @@
+"VGUI_Screens_Mapbase"
+{
+	// These are shared VGui panels used by Mapbase.
+	// They're in their own script file to avoid requiring mods to include it in their own vgui_screens.txt files.
+
+	"movie_display_screen"
+	{
+		"type"		"movie_display_screen"
+		"pixelswide"	256
+		"pixelshigh"	128
+		"acceptsinput"  0
+		"resfile"	"scripts/screens/movie_display_screen.res"
+	}
+
+	"text_display_panel"
+	{
+		"type"		"text_display_panel"
+		"pixelswide"	100
+		"pixelshigh"	100
+		"acceptsinput"  0
+		"resfile"	"scripts/screens/text_display_panel.res"
+	}
+
+}

@@ -1,0 +1,10 @@
+*.exe
+*.dll
+*.pdb
+*.vpk
+*.fgd
+
+mapbase_engine_bin/
+
+# Allow Discord RPC DLL
+!discord-rpc.dll

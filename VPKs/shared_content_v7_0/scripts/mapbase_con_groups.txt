@@ -1,0 +1,64 @@
+// Mapbase Console Groups
+// (NOTE: If you want to add to or modify these groups for your own purposes, it's recommended to use "mod_con_groups.txt" instead!)
+
+ConsoleGroups
+{
+	// 
+	// General
+	// 
+	"Mapbase misc."
+	{
+		"MessageColor" "192 128 224 255"
+	}
+	
+	"Physics"
+	{
+		"MessageColor" "159 209 159 255"
+	}
+	
+	"Entity IO"
+	{
+		"MessageColor" "220 170 220 255"
+	}
+	
+	"Response System"
+	{
+		"MessageColor" "255 224 224 255"
+	}
+	
+	// 
+	// Game
+	// 
+	"NPC AI"
+	{
+		"MessageColor" "240 160 200 255"
+	}
+	
+	"NPC scripts"
+	{
+		"MessageColor" "255 115 215 255"
+	}
+	
+	"Speech AI"
+	{
+		"MessageColor" "245 224 190 255"
+	}
+	
+	"Choreo"
+	{
+		"MessageColor" "240 224 180 255"
+	}
+	
+	// 
+	// VScript
+	// 
+	"VScript"
+	{
+		"MessageColor" "192 224 240 255"
+	}
+	
+	"VScript print"
+	{
+		"MessageColor" "80 186 255 255"
+	}
+}

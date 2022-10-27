@@ -1,0 +1,186 @@
+//============================================================================================================
+// 
+// This is an override talker file with no lines mentioning Gordon Freeman.
+// 
+// Include this in your map's talker file if you don't play as Freeman.
+// 
+// Note that there's an episodic version as well.
+// 
+//============================================================================================================
+
+
+//============================================================================================================
+// Citizen speech
+//============================================================================================================
+response "CitizenHello"
+{
+	scene "scenes/npc/$gender01/hi01.vcd"
+	scene "scenes/npc/$gender01/hi02.vcd"
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "CitizenTalkPlayerPushed"
+{
+   scene "scenes/npc/$gender01/excuseme01.vcd"
+   scene "scenes/npc/$gender01/excuseme02.vcd"
+   scene "scenes/npc/$gender01/pardonme01.vcd"
+   scene "scenes/npc/$gender01/pardonme02.vcd"
+   scene "scenes/npc/$gender01/sorry01.vcd"
+   scene "scenes/npc/$gender01/sorry02.vcd"
+   scene "scenes/npc/$gender01/sorry03.vcd"
+   scene "scenes/npc/$gender01/outofyourway01.vcd"
+   scene "scenes/npc/$gender01/outofyourway02.vcd"
+   scene "scenes/npc/$gender01/whoops01.vcd"
+}
+
+//------------------------------------------------------------------------------------------------------------
+// Citizen Mourning the player's death
+// 
+// Hopefully just removing the Freeman lines would be good enough for most applications.
+//------------------------------------------------------------------------------------------------------------
+
+response "CitizenMournQ"
+{
+	scene "scenes/npc/$gender01/gordead_ques01.vcd"
+	scene "scenes/npc/$gender01/gordead_ques02.vcd"
+	//scene "scenes/npc/$gender01/gordead_ques03a.vcd"
+	//scene "scenes/npc/$gender01/gordead_ques03b.vcd"
+	//scene "scenes/npc/$gender01/gordead_ques04.vcd"
+	//scene "scenes/npc/$gender01/gordead_ques05.vcd"
+	scene "scenes/npc/$gender01/gordead_ques06.vcd"
+	scene "scenes/npc/$gender01/gordead_ques07.vcd"
+	//scene "scenes/npc/$gender01/gordead_ques08.vcd"
+	scene "scenes/npc/$gender01/gordead_ques09.vcd"
+	scene "scenes/npc/$gender01/gordead_ques10.vcd"
+	scene "scenes/npc/$gender01/gordead_ques11.vcd"
+	//scene "scenes/npc/$gender01/gordead_ques12.vcd"
+	scene "scenes/npc/$gender01/gordead_ques13.vcd"
+	scene "scenes/npc/$gender01/gordead_ques14.vcd"
+	//scene "scenes/npc/$gender01/gordead_ques15.vcd"
+	scene "scenes/npc/$gender01/gordead_ques16.vcd"
+	//scene "scenes/npc/$gender01/gordead_ques17.vcd"
+}
+
+response "CitizenMournA"
+{
+	scene "scenes/npc/$gender01/gordead_ans01.vcd"
+	scene "scenes/npc/$gender01/gordead_ans02.vcd"
+	scene "scenes/npc/$gender01/gordead_ans03.vcd"
+	scene "scenes/npc/$gender01/gordead_ans04.vcd"
+	scene "scenes/npc/$gender01/gordead_ans05.vcd"
+	scene "scenes/npc/$gender01/gordead_ans06.vcd"
+	scene "scenes/npc/$gender01/gordead_ans07.vcd"
+	scene "scenes/npc/$gender01/gordead_ans08.vcd"
+	scene "scenes/npc/$gender01/gordead_ans09.vcd"
+	scene "scenes/npc/$gender01/gordead_ans10.vcd"
+	scene "scenes/npc/$gender01/gordead_ans11.vcd"
+	scene "scenes/npc/$gender01/gordead_ans12.vcd"
+	scene "scenes/npc/$gender01/gordead_ans13.vcd"
+	scene "scenes/npc/$gender01/gordead_ans14.vcd"
+	scene "scenes/npc/$gender01/gordead_ans15.vcd"
+	scene "scenes/npc/$gender01/gordead_ans16.vcd"
+	scene "scenes/npc/$gender01/gordead_ans17.vcd" // You know what? Let's just keep this in.
+	scene "scenes/npc/$gender01/gordead_ans18.vcd"
+	scene "scenes/npc/$gender01/gordead_ans19.vcd"
+	scene "scenes/npc/$gender01/gordead_ans20.vcd"
+}
+
+//---------------------------
+response "CitizenGiveAmmo"
+{
+	scene "scenes/npc/$gender01/ammo03.vcd" delay 1
+	scene "scenes/npc/$gender01/ammo04.vcd" delay 1
+	scene "scenes/npc/$gender01/ammo05.vcd" delay 1
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "CitizenDanger" 
+{
+	permitrepeats
+	scene "scenes/npc/$gender01/watchout.vcd" weight 1
+	scene "scenes/npc/$gender01/uhoh.vcd" weight 1.1
+	scene "scenes/npc/$gender01/startle01.vcd" weight 1.1
+	scene "scenes/npc/$gender01/startle02.vcd" weight 1.1
+	scene "scenes/npc/$gender01/getdown02.vcd" weight 1
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "CitizenPlayerReload" 
+
+	scene "scenes/npc/$gender01/youdbetterreload01.vcd"
+}
+
+//------------------------------------------------------------------------------------------------------------
+response CitizenWatchOut
+{
+	scene "scenes/npc/$gender01/watchout.vcd"
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "CitizenNoShoot"
+{
+	scene "scenes/npc/$gender01/watchwhat.vcd"
+}
+
+response "CitizenBetrayed"
+{
+	scene "scenes/npc/$gender01/heretohelp01.vcd"
+	scene "scenes/npc/$gender01/heretohelp02.vcd"
+	scene "scenes/npc/$gender01/wetrustedyou01.vcd"
+	scene "scenes/npc/$gender01/wetrustedyou02.vcd"
+	scene "scenes/npc/$gender01/notthemanithought01.vcd"
+	scene "scenes/npc/$gender01/notthemanithought02.vcd"
+}
+
+//============================================================================================================
+// Soldier speech
+// 
+// If you have your own mod, you could just change the V_G0_PLAYERS in sentences.txt and remove this whole bit.
+// You don't have to do that, just putting it out there.
+//============================================================================================================
+
+response "CombineAssault"
+{
+	//sentence "!COMBINE_ASSAULT0" noscene
+	sentence "!COMBINE_ASSAULT1" noscene
+	sentence "!COMBINE_ASSAULT2" noscene
+	sentence "!COMBINE_ASSAULT3" noscene
+}
+
+response "CombineRefindEnemy"
+{
+	//sentence "!COMBINE_REFIND_ENEMY0" noscene
+	sentence "!COMBINE_REFIND_ENEMY1" noscene
+	sentence "!COMBINE_REFIND_ENEMY2" noscene
+	sentence "!COMBINE_REFIND_ENEMY3" noscene
+}
+
+response "CombineAlertPlayer"
+{
+	//sentence "!COMBINE_ALERT0" noscene
+	sentence "!COMBINE_ALERT1" noscene
+	sentence "!COMBINE_ALERT2" noscene
+	sentence "!COMBINE_ALERT3" noscene
+	sentence "!COMBINE_ALERT4" noscene
+	//sentence "!COMBINE_ALERT5" noscene
+	sentence "!COMBINE_ALERT6" noscene
+	//sentence "!COMBINE_ALERT7" noscene
+	sentence "!COMBINE_ALERT8" noscene
+	//sentence "!COMBINE_ALERT9" noscene
+}
+
+response "CombineKillPlayer"
+{
+	sentence "!COMBINE_PLAYER_DEAD0" noscene
+	sentence "!COMBINE_PLAYER_DEAD1" noscene
+	sentence "!COMBINE_PLAYER_DEAD2" noscene
+	sentence "!COMBINE_PLAYER_DEAD3" noscene
+	//sentence "!COMBINE_PLAYER_DEAD4" noscene
+	//sentence "!COMBINE_PLAYER_DEAD5" noscene
+	sentence "!COMBINE_PLAYER_DEAD6" noscene
+}
+
+//============================================================================================================
+// Metrocops only explicitly say "Freeman" in certain maps from HL2.
+// This means it shouldn't be a concern in custom maps, but you could change that yourself in sentences.txt if you have your own mod.
+//============================================================================================================

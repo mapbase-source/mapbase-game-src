@@ -1,0 +1,27 @@
+// This is a variant of mapbase_default_manifest.txt designed for "ADDON" path IDs rather than individual maps.
+// This was created so that addon creators can create files of generic names without having to create their own manifest file.
+// There is no penalty for having a file missing. You could use this as a template for your own manifest file, too.
+// 
+// Remember: Addon paths with their own default manifest file (%mapname%_mapbase_manifest.txt) will *not* load this file.
+// 
+// Tokens:
+// %mapname% - The name of the folder/VPK (this is called "mapname" due to overlap with the original map-specific code)
+// %language% - UI language
+// 
+"GenericManifest"
+{
+	"NoErrors" "1" // Don't complain if these files don't exist.
+
+	"soundscripts" "scripts/%mapname%_addon_sounds.txt"
+	"actbusy" "scripts/%mapname%_actbusy.txt"
+	"talker" "scripts/talker/%mapname%_talker.txt"
+	//"sentences" "scripts/%mapname%_sentences.txt" // Not supported
+	"localization" "resource/%mapname%_%language%.txt"
+	"closecaption" "resource/%mapname%_closecaption_%language%.txt"
+	"vgui" "scripts/%mapname%_screens.txt"
+	"clientscheme" "resource/%mapname%_clientscheme.res"
+	"hudanimations" "scripts/%mapname%_hudanimations.txt"
+	"hudlayout" "scripts/%mapname%_hudlayout.res"
+	"surfaceprops" "scripts/%mapname%_surfaceproperties.txt"
+	"vscript" "scripts/vscripts/%mapname%_mapspawn"
+}

@@ -1,0 +1,62 @@
+"ChapterList"
+{
+	// Mapbase adds this custom, configurable chapter list which lets you use custom save comments and chapter restrictions.
+	// It's formatted so all maps starting with the specified text will be part of the "chapter" localization text, meaning a key
+	// specifying "d1_town_" will use every map starting with "d1_town_", such as d1_town_01, d1_town_02, etc.
+	// Keyvalues higher in the list will override keyvalues lower in the list.
+	// Using localized (resource/%modname%_%language%.txt) strings is recommended, but not technically required.
+	// Chapters in this list will *not* override the chapter title specified in a map's world entity, if there is one.
+	// Chapters in the "cfg" folder will still need to be used for the "New Game" dialog.
+	// 
+	// Here is an example list taken from HL2's hardcoded title comments:
+	// 
+	// "ChapterList"
+	// {
+	// 	"d2_prison_01" "#HL2_Chapter8_Title"
+	// 	
+	// 	"d2_prison_06" "#HL2_Chapter9a_Title"
+	// 	"d2_prison_07" "#HL2_Chapter9a_Title"
+	// 	"d2_prison_08" "#HL2_Chapter9a_Title"
+	// 	
+	// 	"d2_prison_" "#HL2_Chapter9_Title"
+	// 	
+	// 	"d3_c17_01" "#HL2_Chapter9a_Title"
+	// 	"d3_c17_09" "#HL2_Chapter11_Title"
+	// 	"d3_c17_1" "#HL2_Chapter11_Title"
+	// 	"d3_c17_" "#HL2_Chapter10_Title"
+	// }
+	// 
+	// This system also works with chapter restriction by unlocking chapters when you reach a map that assigned to that chapter in this list.
+	// For chapter restriction to work correctly, you could add a "Chapters" list in this file which assigns chapter numbers to specific strings.
+	// 
+	// "ChapterList"
+	// {
+	// 	"Chapters"
+	// 	{
+	// 		1 "#Mod_Chapter1_Title"
+	// 		1 "#Mod_MiniArea_Title"
+	//		2 "#Mod_Chapter2_Title"
+	// 	}
+	// 	
+	// 	"c1_" "#Mod_Chapter1_Title"
+	// 	"c1_3" "#Mod_MiniArea_Title"
+	// 	
+	// 	"c2" "#Mod_Chapter2_Title"
+	// }
+	// 
+	// However, this should really only be used for when you have maps that are part of another chapter, but should with their own
+	// save comment/RPC text. You should normally just prefix localized chapter title strings with "%modname%_chapter" and have
+	// a specific number at the end of them so all code properly recognizes the chapter it's a part of.
+	// 
+	// The number could also have an 'a', 'b', etc. at the end of it (e.g. "#HL2_Chapter9a_Title") to count as another chapter internally.
+	// For example, Chapter 9a will be placed in between Chapter 9 and Chapter 10.
+	// Do not use 'b' without using 'a', or 'c' before using 'b', etc.
+	// 
+
+	//"mapbase_demo03" "Mapbase Demo 03"
+	//"mapbase_demo" "Mapbase Demo"
+	//"mapbase_" "Mapbase Map"
+
+	//"sdk_vehicles" "SDK Vehicles"
+	//"sdk_" "Source SDK Sample Map"
+}

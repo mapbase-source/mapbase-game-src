@@ -1,0 +1,60 @@
+// --------------------------------------------
+// HL2-specific Mapbase criteria, shared between HL2 and Episodic.
+// 
+// Some of this isn't Mapbase-specific.
+// --------------------------------------------
+criterion "IsCitizen" "classname" "npc_citizen" "required"
+criterion "IsBarney" "classname" "npc_barney" "required"
+criterion "IsAlyx" "classname" "npc_alyx" "required"
+criterion "IsGrigori" "classname" "npc_monk" "required"
+
+criterion "IsMetroPolice" "classname" "npc_metropolice" "required"
+criterion "IsCombineS" "classname" "npc_combine_s" "required"
+
+criterion "EnemyIsClassNone" "enemyclass" "CLASS_NONE" required weight 3
+criterion "EnemyIsClassPlayer" "enemyclass" "CLASS_PLAYER" required weight 3
+criterion "EnemyIsClassAntlion" "enemyclass" "CLASS_ANTLION" required weight 3
+criterion "EnemyIsClassBarnacle" "enemyclass" "CLASS_BARNACLE" required weight 3
+criterion "EnemyIsClassBullseye" "enemyclass" "CLASS_BULLSEYE" required weight 3
+//criterion "EnemyIsClassBullsquid" "enemyclass" "CLASS_BULLSQUID" required weight 3
+criterion "EnemyIsClassCitizenPassive" "enemyclass" "CLASS_CITIZEN_PASSIVE" required weight 3
+criterion "EnemyIsClassCitizenRebel" "enemyclass" "CLASS_CITIZEN_REBEL" required weight 3
+criterion "EnemyIsClassCombine" "enemyclass" "CLASS_COMBINE" required weight 3
+criterion "EnemyIsClassCombineGunship" "enemyclass" "CLASS_COMBINE_GUNSHIP" required weight 3
+criterion "EnemyIsClassCombineHunter" "enemyclass" "CLASS_COMBINE_HUNTER" required weight 3
+criterion "EnemyIsClassConscript" "enemyclass" "CLASS_CONSCRIPT" required weight 3
+criterion "EnemyIsClassHeadcrab" "enemyclass" "CLASS_HEADCRAB" required weight 3
+//criterion "EnemyIsClassHoundeye" "enemyclass" "CLASS_HOUNDEYE" required weight 3
+criterion "EnemyIsClassManhack" "enemyclass" "CLASS_MANHACK" required weight 3
+criterion "EnemyIsClassMetropolice" "enemyclass" "CLASS_METROPOLICE" required weight 3
+criterion "EnemyIsClassMilitary" "enemyclass" "CLASS_MILITARY" required weight 3
+criterion "EnemyIsClassScanner" "enemyclass" "CLASS_SCANNER" required weight 3
+criterion "EnemyIsClassStalker" "enemyclass" "CLASS_STALKER" required weight 3
+criterion "EnemyIsClassVortigaunt" "enemyclass" "CLASS_VORTIGAUNT" required weight 3
+criterion "EnemyIsClassZombie" "enemyclass" "CLASS_ZOMBIE" required weight 3
+criterion "EnemyIsClassSniper" "enemyclass" "CLASS_PROTOSNIPER" required weight 3
+criterion "EnemyIsClassMissile" "enemyclass" "CLASS_MISSILE" required weight 3
+criterion "EnemyIsClassFlare" "enemyclass" "CLASS_FLARE" required weight 3
+criterion "EnemyIsClassEarthFauna" "enemyclass" "CLASS_EARTH_FAUNA" required weight 3
+criterion "EnemyIsClassPlayerAlly" "enemyclass" "CLASS_PLAYER_ALLY" required weight 3
+criterion "EnemyIsClassPlayerAllyVital" "enemyclass" "CLASS_PLAYER_ALLY_VITAL" required weight 3
+criterion "EnemyIsClassHackedRollermine" "enemyclass" "CLASS_HACKED_ROLLERMINE" required weight 3
+
+// Squads
+criterion "IsInASquad" "insquad" "1" required
+criterion "IsNotInASquad" "insquad" "0" required
+criterion "IsSquadLeader" "isleader" "1" required
+criterion "IsNotSquadLeader" "isleader" "!=1" required
+
+// Health Fracs
+criterion "IsHealth<25Percent" "healthfrac" "<0.25" "required"
+criterion "IsHealth>80Percent" "healthfrac" ">0.8" "required"
+criterion "IsHealth>90Percent" "healthfrac" ">0.9" "required"
+
+criterion "NotInPanic" "readiness" "!panic" required
+
+criterion "IsEpisodic" "episodic" "1" required
+criterion "IsNotEpisodic" "episodic" "0" required
+
+// --------------------------------------------
+

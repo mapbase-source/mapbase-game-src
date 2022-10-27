@@ -1,0 +1,461 @@
+//============================================================================================================
+// Dynamic interaction criteria
+//criterion "ConceptCompanionDI" "concept" "COMPANION_DI" "required"
+criterion "ConceptDI_Alyx01_Karate" "concept" "DI_Alyx01_Karate" "required"
+criterion "ConceptDI_Alyx01_KarateQuiet" "concept" "DI_Alyx01_KarateQuiet" "required"
+criterion "ConceptDI_Alyx01_Struggle" "concept" "DI_Alyx01_Struggle" "required"
+
+//============================================================================================================
+
+//============================================================================================================
+// Alyx's dynamic interaction speech
+//============================================================================================================
+//----------------------------------------------------------------------------
+
+// We used to pass sounds directly through a "data" criteria modifier, but now we use the concept directly and pick sounds here.
+//response "DI_Generic"
+//{
+//	speak $data
+//}
+//rule DI_Generic
+//{
+//	criteria ConceptCompanionDI
+//	response DI_Generic
+//}
+
+//=============
+// Citizens
+//=============
+response DI_Citizen_Karate_Group
+{
+	// The most karate-like sound of all
+	speak "npc_citizen.die"
+}
+response DI_Citizen_Karate
+{
+	response "DI_Citizen_Karate_Group" odds 75
+}
+rule DI_Citizen_Karate
+{
+	criteria ConceptDI_Alyx01_Karate IsCitizen
+	response DI_Citizen_Karate
+}
+
+response DI_Citizen_KarateQuiet
+{
+}
+rule DI_Citizen_KarateQuiet
+{
+	criteria ConceptDI_Alyx01_KarateQuiet IsCitizen
+	response DI_Citizen_KarateQuiet
+}
+
+response DI_Citizen_Struggle
+{
+	speak "npc_citizen.startle01"
+	speak "ep1_citizen.cit_shock01"
+	speak "ep1_citizen.cit_shock02"
+	speak "ep1_citizen.cit_pain05"
+	
+	speak "ep1_citizen.cit_alert_head03"
+	speak "ep1_citizen.cit_alert_head06"
+}
+rule DI_Citizen_Struggle
+{
+	criteria ConceptDI_Alyx01_Struggle IsCitizen
+	response DI_Citizen_Struggle
+}
+
+//=============
+// Barney
+//=============
+response DI_Barney_Karate_Group
+{
+	speak "npc_barney.ba_pain02"
+	speak "npc_barney.ba_laugh01" predelay 0.25
+}
+response DI_Barney_Karate
+{
+	response "DI_Barney_Karate_Group" odds 75
+}
+rule DI_Barney_Karate
+{
+	criteria ConceptDI_Alyx01_Karate IsBarney
+	response DI_Barney_Karate
+}
+
+response DI_Barney_KarateQuiet
+{
+}
+rule DI_Barney_KarateQuiet
+{
+	criteria ConceptDI_Alyx01_KarateQuiet IsBarney
+	response DI_Barney_KarateQuiet
+}
+
+response DI_Barney_Struggle
+{
+	speak "npc_barney.ba_damnit"
+	speak "npc_barney.ba_pain01"
+	speak "npc_barney.ba_pain02"
+	speak "k_lab.ba_getitoff01_cc"
+}
+rule DI_Barney_Struggle
+{
+	criteria ConceptDI_Alyx01_Struggle IsBarney
+	response DI_Barney_Struggle
+}
+
+//=============
+// Grigori
+//=============
+response DI_Grigori_Karate_Group
+{
+	permitrepeats
+	//speak "ravenholm.monk_rant01"
+	//speak "ravenholm.monk_rant02"
+	//speak "ravenholm.monk_rant09"
+	//speak "ravenholm.monk_rant10"
+	//speak "ravenholm.monk_rant16"
+	response "GrigoriEnemyDead" weight 9
+}
+response DI_Grigori_Karate
+{
+	response "DI_Grigori_Karate_Group" odds 60
+}
+rule DI_Grigori_Karate
+{
+	criteria ConceptDI_Alyx01_Karate IsGrigori
+	response DI_Grigori_Karate
+}
+
+response DI_Grigori_KarateQuiet
+{
+	// Very quiet indeed
+	permitrepeats
+	response "GrigoriEnemyDead" weight 9
+	speak "ravenholm.engage04" weight 2
+	speak "ravenholm.engage05" weight 2
+	speak "ravenholm.engage06" weight 2
+}
+rule DI_Grigori_KarateQuiet
+{
+	criteria ConceptDI_Alyx01_KarateQuiet IsGrigori
+	//activity !=ACT_DI_ALYX_ZOMBIE_SHOTGUN64
+	response DI_Grigori_KarateQuiet //DI_Grigori_Karate
+}
+
+response DI_Grigori_Struggle
+{
+	permitrepeats
+	speak "ravenholm.monk_pain01"
+	speak "ravenholm.monk_pain05"
+	speak "ravenholm.monk_pain10"
+	speak "ravenholm.monk_rant01" weight 0.1
+	speak "ravenholm.monk_rant16"
+}
+rule DI_Grigori_Struggle
+{
+	criteria ConceptDI_Alyx01_Struggle IsGrigori
+	response DI_Grigori_Struggle
+}
+
+//=============
+// Metrocops
+//=============
+response DI_MetroPolice_Karate_Group
+{
+	// They're scared of the close contact
+	sentence "METROPOLICE_PAIN_HEAVY"
+}
+response DI_MetroPolice_Karate
+{
+	response "DI_MetroPolice_Karate_Group" odds 75
+}
+rule DI_MetroPolice_Karate
+{
+	criteria ConceptDI_Alyx01_Karate IsMetroPolice
+	response DI_MetroPolice_Karate
+}
+
+response DI_MetroPolice_KarateQuiet
+{
+}
+rule DI_MetroPolice_KarateQuiet
+{
+	criteria ConceptDI_Alyx01_KarateQuiet IsMetroPolice
+	response DI_MetroPolice_KarateQuiet
+}
+
+response DI_MetroPolice_Struggle
+{
+	sentence "METROPOLICE_PAIN_HEAVY"
+}
+rule DI_MetroPolice_Struggle
+{
+	criteria ConceptDI_Alyx01_Struggle IsMetroPolice
+	response DI_MetroPolice_Struggle
+}
+
+//=============
+// Combine
+//=============
+response DI_Combine_Karate_Group
+{
+	sentence "COMBINE_TAUNT"
+}
+response DI_Combine_Karate
+{
+	response "DI_Combine_Karate_Group" odds 50
+}
+rule DI_Combine_Karate
+{
+	criteria ConceptDI_Alyx01_Karate IsCombineS
+	response DI_Combine_Karate
+}
+
+response DI_Combine_KarateQuiet
+{
+}
+rule DI_Combine_KarateQuiet
+{
+	criteria ConceptDI_Alyx01_KarateQuiet IsCombineS
+	response DI_Combine_KarateQuiet
+}
+
+response DI_Combine_Struggle
+{
+	sentence "COMBINE_COVER"
+}
+rule DI_Combine_Struggle
+{
+	criteria ConceptDI_Alyx01_Struggle IsCombineS
+	response DI_Combine_Struggle
+}
+
+//----------------------------------------------------------------------------
+
+//============================================================================================================
+// Hunter dynamic interaction speech
+//============================================================================================================
+
+//============================================================================================================
+// Hunter interaction criteria
+criterion "ConceptDI_Hunter01_Panic" "concept" "DI_Hunter01_Yelp" "required"
+criterion "ConceptDI_Hunter01_Pain1" "concept" "DI_Hunter01_Pain1" "required" // First pain emitted in sequence
+criterion "ConceptDI_Hunter01_Pain2" "concept" "DI_Hunter01_Pain2" "required" // Second pain emitted in sequence
+//============================================================================================================
+
+//----------------------------------------------------------------------------
+
+//=============
+// Citizens
+// 
+// Since this already existed on citizens and their lines were already picked out,
+// these responses are meant to keep those exact triggers intact.
+// 
+//=============
+response DI_Citizen_HunterPanic1_Group
+{
+	speak "npc_citizen.uhoh"
+}
+response DI_Citizen_HunterPanic2_Group
+{
+	speak "npc_citizen.whoops01"
+}
+rule DI_Citizen_HunterPanic1
+{
+	criteria ConceptDI_Hunter01_Panic IsCitizen
+	response DI_Citizen_HunterPanic1_Group
+}
+rule DI_Citizen_HunterPanic2
+{
+	criteria ConceptDI_Hunter01_Panic IsCitizen
+	activity "ACT_DI_HUNTER_MELEE" weight 5 // hunter_cit_throw_ground, the sequence that uses "Whoops"
+	response DI_Citizen_HunterPanic2_Group
+}
+
+response DI_Citizen_HunterPain1_Group
+{
+	speak "npc_citizen.pain03"
+}
+response DI_Citizen_HunterPain2_Group
+{
+	speak "npc_citizen.pain08"
+}
+rule DI_Citizen_HunterPain1
+{
+	criteria ConceptDI_Hunter01_Pain1 IsCitizen
+	response DI_Citizen_HunterPain1_Group
+}
+rule DI_Citizen_HunterPain2
+{
+	criteria ConceptDI_Hunter01_Pain2 IsCitizen
+	response DI_Citizen_HunterPain2_Group
+}
+
+//=============
+// Alyx
+// 
+// How could you let this happen to her again!?
+//=============
+response DI_Alyx_HunterPanic_Group
+{
+	speak "ep_01.al_gordon"
+	speak "npc_alyx.watchout02"
+}
+rule DI_Alyx_HunterPanic
+{
+	criteria ConceptDI_Hunter01_Panic IsAlyx
+	response DI_Alyx_HunterPanic_Group
+}
+
+response DI_Alyx_HunterPain1_Group
+{
+	speak "ep_01.al_fight02"
+	speak "ep_01.al_fight13"
+}
+response DI_Alyx_HunterPain2_Group
+{
+	speak "ep_01.al_fight10"
+	speak "ep_01.al_fight12"
+	speak "ep_01.al_fight16"
+}
+rule DI_Alyx_HunterPain1
+{
+	criteria ConceptDI_Hunter01_Pain1 IsAlyx
+	response DI_Alyx_HunterPain1_Group
+}
+rule DI_Alyx_HunterPain2
+{
+	criteria ConceptDI_Hunter01_Pain2 IsAlyx
+	response DI_Alyx_HunterPain2_Group
+}
+
+//=============
+// Barney
+//=============
+response DI_Barney_HunterPanic_Group
+{
+	speak "npc_barney.ba_no01"
+	speak "npc_barney.ba_no02"
+	speak "npc_barney.ba_damnit"
+}
+rule DI_Barney_HunterPanic
+{
+	criteria ConceptDI_Hunter01_Panic IsBarney
+	response DI_Barney_HunterPanic_Group
+}
+
+response DI_Barney_HunterPain1_Group
+{
+	speak "npc_barney.ba_pain01"
+	speak "npc_barney.ba_pain04"
+	speak "npc_barney.ba_pain09"
+}
+response DI_Barney_HunterPain2_Group
+{
+	speak "npc_barney.ba_pain02"
+	speak "npc_barney.ba_pain03"
+	speak "npc_barney.ba_pain06"
+}
+rule DI_Barney_HunterPain1
+{
+	criteria ConceptDI_Hunter01_Pain1 IsBarney
+	response DI_Barney_HunterPain1_Group
+}
+rule DI_Barney_HunterPain2
+{
+	criteria ConceptDI_Hunter01_Pain2 IsBarney
+	response DI_Barney_HunterPain2_Group
+}
+
+//=============
+// Grigori
+//=============
+response DI_Grigori_HunterPanic_Group
+{
+	speak "ravenholm.monk_helpme02"
+}
+rule DI_Grigori_HunterPanic
+{
+	criteria ConceptDI_Hunter01_Panic IsGrigori
+	response DI_Grigori_HunterPanic_Group
+}
+
+response DI_Grigori_HunterPain1_Group
+{
+	speak "ravenholm.monk_pain02"
+	speak "ravenholm.monk_pain06"
+}
+response DI_Grigori_HunterPain2_Group
+{
+	speak "ravenholm.monk_pain09"
+	speak "ravenholm.monk_pain10"
+}
+rule DI_Grigori_HunterPain1
+{
+	criteria ConceptDI_Hunter01_Pain1 IsGrigori
+	response DI_Grigori_HunterPain1_Group
+}
+rule DI_Grigori_HunterPain2
+{
+	criteria ConceptDI_Hunter01_Pain2 IsGrigori
+	response DI_Grigori_HunterPain2_Group
+}
+
+//=============
+// Metrocops
+//=============
+response DI_MetroPolice_HunterPanic_Group
+{
+	sentence "METROPOLICE_PAIN_HEAVY"
+}
+rule DI_MetroPolice_HunterPanic
+{
+	criteria ConceptDI_Hunter01_Panic IsMetroPolice
+	response DI_MetroPolice_HunterPanic_Group
+}
+
+response DI_MetroPolice_HunterPain_Group
+{
+	sentence "METROPOLICE_PAIN"
+}
+rule DI_MetroPolice_HunterPain1
+{
+	criteria ConceptDI_Hunter01_Pain1 IsMetroPolice
+	response DI_MetroPolice_HunterPain_Group
+}
+rule DI_MetroPolice_HunterPain2
+{
+	criteria ConceptDI_Hunter01_Pain2 IsMetroPolice
+	response DI_MetroPolice_HunterPain_Group
+}
+
+//=============
+// Combine
+//=============
+response DI_Combine_HunterPanic_Group
+{
+	sentence "COMBINE_COVER"
+}
+rule DI_Combine_HunterPanic
+{
+	criteria ConceptDI_Hunter01_Panic IsCombineS
+	response DI_Combine_HunterPanic_Group
+}
+
+response DI_Combine_HunterPain_Group
+{
+	sentence "COMBINE_PAIN"
+}
+rule DI_Combine_HunterPain1
+{
+	criteria ConceptDI_Hunter01_Pain1 IsCombineS
+	response DI_Combine_HunterPain_Group
+}
+rule DI_Combine_HunterPain2
+{
+	criteria ConceptDI_Hunter01_Pain2 IsCombineS
+	response DI_Combine_HunterPain_Group
+}

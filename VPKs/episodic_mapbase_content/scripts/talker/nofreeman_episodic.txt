@@ -1,0 +1,38 @@
+//============================================================================================================
+// 
+// This is an override talker file with no lines mentioning Gordon Freeman. It inherits from the original HL2 version.
+// 
+// Include this in your map's talker file if you don't play as Freeman.
+// 
+// There's only one line in Episodic we have to override though, so...
+// 
+//============================================================================================================
+
+
+//------------------------------------------------------------------------------------------------------------
+response "CitizenEnemyDead"
+{
+	scene "scenes/episode_1/npc/$gender01/cit_kill01.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill02.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill03.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill04.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill06.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill07.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill08.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill09.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill10.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill11.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill12.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill13.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill14.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill17.vcd"
+	//scene "scenes/episode_1/npc/$gender01/cit_kill18.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill19.vcd"
+	scene "scenes/episode_1/npc/$gender01/cit_kill20.vcd"
+	scene "scenes/npc/$gender01/gotone01.vcd"
+	scene "scenes/npc/$gender01/gotone02.vcd"
+	scene "scenes/npc/$gender01/likethat.vcd"
+}
+
+//============================================================================================================
+#include "talker/nofreeman.txt"

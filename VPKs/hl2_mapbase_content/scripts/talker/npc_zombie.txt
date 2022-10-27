@@ -1,0 +1,125 @@
+//============================================================================================================
+// npz_zombie_custom allows regular zombies to operate all speech on the Response System.
+// 
+// They come with the following criteria:
+// 
+// "slumped" -- Whether this zombie is slumping.
+// "onfire" -- Whether this zombie is on fire. (TODO: This criteria may already exist; remove if found)
+// 
+//============================================================================================================
+//============================================================================================================
+// npc_zombie concepts and criteria
+//============================================================================================================
+// Concepts
+criterion "ConceptTalkZombiePain" "Concept" "TLK_WOUND" required
+criterion "ConceptTalkZombieDie" "Concept" "TLK_DEATH" required
+criterion "ConceptTalkZombieAlert" "Concept" "TLK_STARTCOMBAT" required
+criterion "ConceptTalkZombieIdle" "Concept" "TLK_QUESTION" required
+criterion "ConceptTalkZombieAttack" "Concept" "TLK_MELEE" required
+criterion "ConceptTalkZombieMoan" "Concept" "TLK_MOAN" required
+
+// Other criteria
+criterion "IsZombie" "classname" "npc_zombie" required
+
+criterion "IsNotSlumping" "slumped" "0" required
+criterion "IsNotOnFire" "onfire" "0" required
+
+//============================================================================================================
+// npc_zombie basic sounds
+//============================================================================================================
+response "ZombiePain"
+{
+	speak "Zombie.Pain" noscene
+}
+
+rule ZombiePain
+{
+	criteria		IsZombie ConceptTalkZombiePain IsNotOnFire
+	response		ZombiePain
+}
+
+response "ZombieDie"
+{
+	speak "Zombie.Die" noscene
+}
+
+rule ZombieDie
+{
+	criteria		IsZombie ConceptTalkZombieDie DeathSoundsAllowed
+	response		ZombieDie
+}
+
+response "ZombieAlert"
+{
+	speak "Zombie.Alert" noscene
+}
+
+rule ZombieAlert
+{
+	criteria		IsZombie ConceptTalkZombieAlert
+	response		ZombieAlert
+}
+
+response "ZombieIdle"
+{
+	speak "Zombie.Idle" noscene
+}
+
+rule ZombieIdle
+{
+	criteria		IsZombie ConceptTalkZombieIdle IsNotSlumping
+	response		ZombieIdle
+}
+
+response "ZombieAttack"
+{
+	speak "Zombie.Attack" noscene
+}
+
+rule ZombieAttack
+{
+	criteria		IsZombie ConceptTalkZombieAttack
+	response		ZombieAttack
+}
+
+response "ZombieMoan1"
+{
+	speak "NPC_BaseZombie.Moan1" noscene
+}
+response "ZombieMoan2"
+{
+	speak "NPC_BaseZombie.Moan2" noscene
+}
+response "ZombieMoan3"
+{
+	speak "NPC_BaseZombie.Moan3" noscene
+}
+response "ZombieMoan4"
+{
+	speak "NPC_BaseZombie.Moan4" noscene
+}
+
+rule ZombieMoan1
+{
+	criteria		IsZombie ConceptTalkZombieMoan
+	moansound "1" required
+	response		ZombieMoan1
+}
+rule ZombieMoan2
+{
+	criteria		IsZombie ConceptTalkZombieMoan
+	moansound "2" required
+	response		ZombieMoan2
+}
+rule ZombieMoan3
+{
+	criteria		IsZombie ConceptTalkZombieMoan
+	moansound "3" required
+	response		ZombieMoan3
+}
+rule ZombieMoan4
+{
+	criteria		IsZombie ConceptTalkZombieMoan
+	moansound "4" required
+	response		ZombieMoan4
+}

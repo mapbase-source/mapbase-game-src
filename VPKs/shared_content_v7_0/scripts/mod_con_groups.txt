@@ -1,0 +1,9 @@
+// Mod Console Groups
+
+ModConsoleGroups
+{
+	// 
+	// Override console groups or include your own here
+	// (note: new console groups must be created in the code)
+	// 
+}

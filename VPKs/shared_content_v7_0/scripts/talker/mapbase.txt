@@ -1,0 +1,25 @@
+//============================================================================================================
+// 
+// Concepts
+criterion "ConceptTalkDie" "Concept" "TLK_DEATH" required
+
+// Contexts
+criterion "PainSoundsAllowed" "nopainsound" "<1" required
+criterion "DeathSoundsAllowed" "nodeathsound" "<1" required
+criterion "HasCustomDeathSound" "customdeathsound" "!=" required weight 1337
+//============================================================================================================
+
+response "CustomDeathSound"
+{
+	speak "$customdeathsound"
+}
+
+rule "CustomDeathSound"
+{
+	criteria		ConceptTalkDie HasCustomDeathSound
+	response		"CustomDeathSound"
+}
+
+//----------------------------------------------------------------------------
+
+//============================================================================================================
