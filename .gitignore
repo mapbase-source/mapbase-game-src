@@ -3,8 +3,21 @@
 *.pdb
 *.vpk
 *.fgd
+*.vdf
 
-mapbase_engine_bin/
+BUILDS
+BUILDS/*
+
+VPKs/episodic_materials_source/*
+VPKs/hl2_materials_source/*
+VPKs/lostcoast_materials_source/*
+
+VPKs/episodic_materials/*
+VPKs/hl2_materials/*
+VPKs/lostcoast_materials/*
+
+VPKs/episodic_scenes/*
+VPKs/hl2_scenes/*
 
 # Allow Discord RPC DLL
 !discord-rpc.dll
