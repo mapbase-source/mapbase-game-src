@@ -1,0 +1,13 @@
+SDK_WorldVertexTransition
+{
+	"$basetexture2" "nature/dirtfloor012a"
+	"$basetexture" "nature/cliffface001a"
+	
+	"%tooltexture" "nature/blendrockdirt007d_tooltexture"
+	
+	"$basetexturetransform" "center .5 .5 scale 1 1 rotate 0 translate 0 0"
+	//"$basetexturetransform2" "center .5 .5 scale 2 2 rotate 0 translate 0 0" // Mapbase - Commented out to retain original DX9 shader behavior
+//	"%detailtype" "rocks1"
+	"$surfaceprop" "dirt"
+	"%keywords" "coastline"
+}
