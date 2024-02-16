@@ -24,4 +24,5 @@
 	"hudlayout" "maps/%mapname%_hudlayout.res"
 	"surfaceprops" "maps/%mapname%_surfaceproperties.txt"
 	"vscript" "maps/%mapname%_mapspawn"
+	"weapons" "maps/%mapname%_weapons.txt"
 }
