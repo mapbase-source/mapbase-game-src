@@ -36,7 +36,7 @@
 		// 
 		// mapbase_episodic > mapbase_hl2 > mapbase_shared
 		// 
-		// Each Mapbase folder has its own "content" subfolder contianing VPKs.
+		// Each Mapbase folder has its own "content" subfolder containing VPKs.
 		// These are mounted similar to the "custom" folder in which everything is mounted without listing out their names.
 		// 
 		SearchPaths
