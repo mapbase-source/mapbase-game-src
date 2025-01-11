@@ -527,7 +527,7 @@ response "CopAlertPlayerVehicle"
 rule CopAlertPlayerVehicle
 {
 	criteria		IsMetroPolice ConceptTalkCopEnemy EnemyIsClassPlayer
-	enemy_in_vehicle !=0
+	enemy_in_vehicle !=0 required
 	response		CopAlertPlayerVehicle
 }
 
@@ -640,7 +640,7 @@ rule CopKillPlayer
 
 response "CopKillCitizens"
 {
-	sentence "METROPOLICE_MONST_CITIZENS" noscene
+	sentence "METROPOLICE_KILL_CITIZENS" noscene
 }
 
 rule CopKillCitizenPassive
@@ -669,7 +669,7 @@ rule CopKillPlayerAlly
 
 response "CopKillCharacter"
 {
-	sentence "METROPOLICE_MONST_CHARACTER" noscene
+	sentence "METROPOLICE_KILL_CHARACTER" noscene
 }
 
 rule CopKillCharacter
@@ -680,7 +680,7 @@ rule CopKillCharacter
 
 response "CopKillZombies"
 {
-	sentence "METROPOLICE_MONST_ZOMBIES" noscene
+	sentence "METROPOLICE_KILL_ZOMBIES" noscene
 }
 
 rule CopKillZombies
@@ -691,7 +691,7 @@ rule CopKillZombies
 
 response "CopKillParasites"
 {
-	sentence "METROPOLICE_MONST_PARASITES" noscene
+	sentence "METROPOLICE_KILL_PARASITES" noscene
 }
 
 rule CopKillHeadcrab
