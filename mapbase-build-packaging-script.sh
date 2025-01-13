@@ -69,7 +69,7 @@ SOURCE_FGDS_DIR="../source-fgds"
 
 # "read VERSION" could've been used for this, but it doesn't change as frequently as builds
 # are packaged, so it's only modified in the file and confirmed at runtime.
-VERSION="v7_2"
+VERSION="v7_3"
 VERSION_VPK_NAME="v7_0"
 
 # =====================================================================================================

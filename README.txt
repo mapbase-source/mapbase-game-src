@@ -1,6 +1,6 @@
 ==============================================================
 Mapbase Release Build
-v7.2
+v7.3
 ==============================================================
 
 "Installing" Mapbase is basically just like any other Source mod, except there's three folders instead of one. To install Mapbase, follow these instructions:
