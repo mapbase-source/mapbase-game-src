@@ -1,0 +1,4 @@
+SDK_VertexLitGeneric
+{
+	$basetexture "models/editor/sky_helper"
+}
