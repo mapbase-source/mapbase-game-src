@@ -1,7 +1,0 @@
-SDK_Sprite
-{
-	"$spriteorientation" "vp_parallel"
-	"$spriteorigin" "[ 0.50 0.50 ]"
-	"$basetexture" "editor/info_notepad"
-	"$no_fullbright" 1
-}
