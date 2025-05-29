@@ -69,6 +69,13 @@ Scheme
 
 		// Blank space to leave beneath the menu on the main screen
 		"Main.BottomBorder"	"32"
+		
+		// ============================================================
+		// Mapbase adds these to integrate the TF2-style number menu
+		// ============================================================
+		"MenuColor"			"255 220 0 100"
+		"MenuItemColor"		"255 220 0 100"
+		"MenuBoxColor"		"255 220 0 100"
 	}
 
 	//////////////////////// BITMAP FONT FILES /////////////////////////////

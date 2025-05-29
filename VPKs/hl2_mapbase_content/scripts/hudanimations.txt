@@ -878,3 +878,90 @@ event HideVoteBackgrounds
 	Animate		LabelOption5	Alpha	255 Linear	0.0 0.001
 }
 
+//======================================================
+//
+// Below is ported from or based on TF2 and HL2:DM
+//
+//======================================================
+
+// Number menu
+event MenuOpen
+{
+	StopEvent	MenuClose 0.0 
+
+	// fade in
+	Animate HudMenu Alpha 		"255"		Linear 0.0 0.1
+	Animate HudMenu SelectionAlpha 	"255"		Linear 0.0 0.1
+	Animate HudMenu FgColor		"FgColor"		Linear 0.0 0.1
+	Animate HudMenu MenuColor		"MenuColor"	Linear  0.0 0.1
+	Animate HudMenu MenuItemColor		"MenuItemColor"	Linear 0.0 0.1
+	Animate HudMenu TextScan		"1"		Linear 0.0 0.1
+
+	// Undo any blur
+	Animate HudMenu		Blur		"1"			Linear	0.0		0.01
+}
+
+// Alternate event to draw attention to menu, similar to HUD hint
+event MenuOpenFlash
+{
+	StopEvent	MenuClose 0.0 
+
+	// fade in
+	Animate HudMenu Alpha 		"255"		Linear 0.0 0.3
+	Animate HudMenu SelectionAlpha 	"255"		Linear 0.0 0.3
+	Animate HudMenu FgColor		"FgColor"		Linear 0.0 0.3
+	Animate HudMenu MenuColor		"MenuColor"	Linear  0.0 0.3
+	Animate HudMenu MenuItemColor		"MenuItemColor"	Linear 0.0 0.3
+	Animate HudMenu TextScan		"1"		Linear 0.0 0.3
+
+	// flash text
+	Animate HudMenu MenuItemColor	"255 220 0 255" Linear 1.0 0.2
+	Animate HudMenu MenuItemColor	"MenuItemColor" 	Linear 1.2 0.2
+	Animate HudMenu MenuItemColor	"255 220 0 255" Linear 2.0 0.2
+	Animate HudMenu MenuItemColor	"MenuItemColor" 	Linear 2.2 0.2
+	Animate HudMenu MenuColor	"255 220 0 255" Linear 1.0 0.2
+	Animate HudMenu MenuColor	"MenuColor" 	Linear 1.2 0.2
+	Animate HudMenu MenuColor	"255 220 0 255" Linear 2.0 0.2
+	Animate HudMenu MenuColor	"MenuColor" 	Linear 2.2 0.2
+
+	// Undo any blur
+	Animate HudMenu		Blur		"1"			Linear	0.0		0.01
+}
+
+event MenuClose
+{	
+	// Hide it
+	Animate HudMenu Alpha 		"0" Linear 0.0 1
+	Animate HudMenu SelectionAlpha 	"0" Linear 0.0 1
+	Animate HudMenu FgColor		"0 0 0 0" Linear 0.0 1
+	Animate HudMenu MenuColor		"0 0 0 0" Linear 0.0 1
+	Animate HudMenu MenuItemColor		"0 0 0 0" Linear 0.0 1
+}
+
+event MenuPulse
+{
+	Animate HudMenu		Blur		"7"			Linear	0.0		0.1
+	Animate HudMenu		Blur		"2"			Deaccel	0.1		0.1
+	Animate HudMenu		Blur		"7"			Linear	0.2		0.1
+	Animate HudMenu		Blur		"2"			Deaccel	0.3		0.1
+	Animate HudMenu		Blur		"7"			Linear	0.4		0.1
+	Animate HudMenu		Blur		"2"			Deaccel	0.5		0.1
+	Animate	HudMenu		Blur		"1"			Deaccel	0.6		0.4
+}
+
+// HL2:DM team
+event FadeOutTeamLine
+{
+	// make the display visible
+	Animate TeamDisplay Alpha 		"0"		Linear 0.0 0.25
+}
+
+event FadeInTeamLine
+{
+	// make the display visible
+	Animate TeamDisplay Alpha 		"255"		Linear 0.0 0.5
+}
+
+//======================================================
+//======================================================
+
