@@ -113,12 +113,11 @@ Direct contributions:
 - https://github.com/mapbase-source/source-sdk-2013/pull/397 (Viewmodel camera bone by Nbc66)
 - https://github.com/mapbase-source/source-sdk-2013/pull/412 (Compile tool negative threads support by Unusuario2)
 - https://github.com/mapbase-source/source-sdk-2013/pull/414 (VRAD %alphatexture by SirYodaJedi)
-- https://github.com/mapbase-source/source-sdk-2013/pull/415 (Parallax corrected cubemaps optimization and fix by Zeldaboy14/White_Red_Dragons)
+- https://github.com/mapbase-source/source-sdk-2013/pull/415 (Parallax corrected cubemaps optimization and fix by Zeldaboy14 and White_Red_Dragons)
 - https://github.com/mapbase-source/source-sdk-2013/pull/418 (Server ragdoll death poses by AnOldLady)
 - https://github.com/mapbase-source/source-sdk-2013/pull/419 (npc_helicopter removal crash fix by Wikot235)
 - https://github.com/mapbase-source/source-sdk-2013/pull/420 (sk_combine_head_dmg_multiplier cvar by Wikot235)
-- https://github.com/mapbase-source/source-sdk-2013/pull/422 (Expanded HL2 NPC custom model support by Maestra Fenix)
-- https://github.com/mapbase-source/source-sdk-2013/pull/427 (CBaseCombatWeapon::WeaponClassFromString typo fix by vizzys/Petercov)
+- https://github.com/mapbase-source/source-sdk-2013/pull/422 (Expanded HL2 NPC custom model support by Maestra Fenix [committed by Blixibon])
 - https://github.com/mapbase-source/mapbase-game-src/pull/1 (Advanced video options duplicate field name fix by arbabf; This is asset-based and not reflected in the code)
 - https://github.com/mapbase-source/mapbase-game-src/pull/2 (gameinfo.txt typo fix by CarePackage17; This is asset-based and not reflected in the code)
 - https://github.com/mapbase-source/mapbase-game-src/pull/3 (HudMessage cutoff fix by arbabf; This is asset-based and not reflected in the code)
@@ -185,6 +184,7 @@ Direct contributions:
 =-- https://github.com/mapbase-source/source-sdk-2013/pull/230 (Caption fixes)
 =-- https://github.com/mapbase-source/source-sdk-2013/pull/231 (Sentence source bug fix)
 =-- https://github.com/mapbase-source/source-sdk-2013/pull/264 (Outputs for vgui_screen)
+=-- https://github.com/mapbase-source/source-sdk-2013/pull/427 (CBaseCombatWeapon::WeaponClassFromString typo fix [committed by vizzys])
 
 //-------------------------------------------------------------------------------------------------------------------------
 
