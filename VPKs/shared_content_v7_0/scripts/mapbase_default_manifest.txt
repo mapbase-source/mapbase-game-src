@@ -15,7 +15,7 @@
 	//"soundscripts" "maps/%mapname%_level_sounds.txt" // This is automatically loaded by other systems, only here as an example
 	"actbusy" "maps/%mapname%_actbusy.txt"
 	"talker" "maps/%mapname%_talker.txt"
-	//"sentences" "maps/%mapname%_sentences.txt" // Not supported
+	"choreosentences" "maps/%mapname%_choreosentences.txt"
 	"localization" "maps/%mapname%_%language%.txt"
 	"closecaption" "maps/%mapname%_closecaption_%language%.txt"
 	"vgui" "maps/%mapname%_screens.txt"
@@ -25,4 +25,5 @@
 	"surfaceprops" "maps/%mapname%_surfaceproperties.txt"
 	"vscript" "maps/%mapname%_mapspawn"
 	"weapons" "maps/%mapname%_weapons.txt"
+	"protagonists" "maps/%mapname%_protagonists.txt"
 }
