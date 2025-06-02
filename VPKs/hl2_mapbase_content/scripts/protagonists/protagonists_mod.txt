@@ -1,0 +1,56 @@
+//----------------------------------------------------------------------------
+// 
+// Protagonist System - Mod
+//
+// Use this file in your mod to make your own protagonists.
+// See "protagonists_manifest.txt" if you'd like to create a separate file.
+// 
+// Example:
+//
+// 		"[protagonist name]"		- The name used to select the protagonist.
+// 		{
+// 			"inherits_from"			- Existing protagonists to inherit keyvalues from. Separated by semicolon.
+//
+// 			"playermodel"			- The model the player should be set to.
+// 			"playermodel_skin"		- The playermodel's skin value.
+// 			"playermodel_body"		- The playermodel's bodygroup value. This is currently a direct body integer.
+//
+// 			"hands"					- The hand viewmodel used when c_arms are supported.
+// 			"hands_skin"			- The hand model's skin value.
+// 			"hands_body"			- The hand model's bodygroup value. This is currently a direct body integer.
+//
+// 			"hands_..."				- Using "hands_blender" or "hands_css" will set them as different hand models for different rigs.
+//									  The default protagonists do not use this and it is only important if you have viewmodels with
+//									  different rigs.
+//
+//			"response_contexts"		- Response contexts appended to the player, separated by comma.
+//			"team"					- HL2:DM only: Which team the protagonist should be on.
+//									  Accepts "combine", "rebels", or a direct integer.
+//
+//			"wpn_data"				- A list of weapons to override the data for while this protagonist is active.
+//									  This is mostly used to add c_arms support.
+//			{
+//				"[weapon name]"			- The classname of the weapon to override. (e.g. "weapon_smg1")
+//				{
+//						"viewmodel"				- The viewmodel the weapon should use.
+//						"viewmodel_fov"			- The FOV the viewmodel should use.
+//						"uses_hands"			- Whether or not this viewmodel uses c_arms.
+//						"hand_rig"				- Which hand rig this viewmodel uses, if relevant.
+//				}
+//			}
+//
+//			"wpn_viewmodels"		- A shortcut for "wpn_data" which only sets the viewmodel on the listed weapons.
+//			{
+//				"[weapon name]"		"[viewmodel path]"
+//			}
+//
+//			"wpn_viewmodels_c"		- The same as "wpn_viewmodels", but it also turns on "uses_hands" automatically.
+//			{
+//				"[weapon name]"		"[viewmodel path]"
+//			}
+// 		}
+// 
+//----------------------------------------------------------------------------
+"Protagonists"
+{
+}

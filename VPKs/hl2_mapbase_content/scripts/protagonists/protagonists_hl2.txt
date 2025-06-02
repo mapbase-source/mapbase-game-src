@@ -1,0 +1,199 @@
+//----------------------------------------------------------------------------
+// 
+// Protagonist System - HL2
+// 
+//----------------------------------------------------------------------------
+"Protagonists"
+{
+	"gordon"
+	{
+		"inherits_from"		"BASE_hl2_c_arms"
+		"playermodel"		"models/gordon/gordon.mdl"
+		//"hands"		"models/weapons/v_hands.mdl"
+		"team"	"rebels"
+	}
+
+	"gordon_citizen"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/gordon/gordon_citizen.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_m_citizen1.mdl"
+		"hands_skin"		"0"
+
+		"team"	"rebels"
+	}
+
+	"alyx"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/alyx.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_alyx.mdl"
+
+		"response_contexts"	"classname:npc_alyx"
+		"team"	"rebels"
+	}
+
+	"barney"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/barney.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_police.mdl"
+
+		"response_contexts"	"classname:npc_barney"
+		"team"	"rebels"
+	}
+
+	"eli"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/eli.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_eli.mdl"
+
+		"response_contexts"	"classname:npc_eli"
+		"team"	"rebels"
+	}
+
+	"kleiner"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/kleiner.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_kleiner.mdl"
+
+		"response_contexts"	"classname:npc_kleiner"
+		"team"	"rebels"
+	}
+
+	"monk"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/monk.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_monk.mdl"
+
+		"response_contexts"	"classname:npc_monk"
+		"team"	"rebels"
+	}
+
+	"magnusson"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/magnusson.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_magnusson.mdl"
+
+		"response_contexts"	"classname:npc_magnusson"
+		"team"	"rebels"
+	}
+
+	"mossman_ep1"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/mossman.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_mossman_ep1.mdl"
+
+		"response_contexts"	"classname:npc_mossman"
+		"team"	"rebels"
+	}
+
+	"breen"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/breen.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_breen.mdl"
+
+		"response_contexts"	"classname:npc_breen"
+		"team"	"combine"
+	}
+	
+	//----------------------------------------------------------------------------
+
+	"police"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/police.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_police.mdl"
+
+		"response_contexts"	"classname:npc_metropolice"
+		"team"	"combine"
+	}
+
+	"combine_soldier"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/combine_soldier.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_combine.mdl"
+
+		"response_contexts"	"classname:npc_combine_s"
+		"team"	"combine"
+	}
+ 
+	"combine_soldier_sg"
+	{
+		"inherits_from"		"combine_soldier"
+		"playermodel_skin"	"1"
+		"hands_skin"	"1"
+	}
+ 
+	"combine_prisonguard"
+	{
+		"inherits_from"		"combine_soldier"
+		"playermodel"		"models/combine_soldier_prisonguard.mdl"
+		"playermodel_skin"	"0"
+		"hands_skin"	"2"
+	}
+
+	"combine_prisonguard_sg"
+	{
+		"inherits_from"		"combine_soldier"
+		"playermodel"		"models/combine_soldier_prisonguard.mdl"
+		"playermodel_skin"	"1"
+		"hands_skin"	"2"
+	}
+ 
+	"combine_elite"
+	{
+		"inherits_from"		"combine_soldier"
+		"playermodel"		"models/combine_super_soldier.mdl"
+		"playermodel_skin"	"1"
+		"hands_skin"	"3"
+	}
+
+	"combine_soldier_dirty"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"playermodel"		"models/combine_soldirt.mdl"
+		"hands"			"models/weapons/hl2_c/c_arms_combine_dirty.mdl"
+
+		"response_contexts"	"classname:npc_combine_s"
+		"team"	"combine"
+	}
+ 
+	"combine_soldier_dirty_sg"
+	{
+		"inherits_from"		"combine_soldier_dirty"
+		"playermodel_skin"	"1"
+		"hands_skin"	"1"
+	}
+ 
+	"combine_prisonguard_dirty"
+	{
+		"inherits_from"		"combine_soldier_dirty"
+		"playermodel"		"models/combine_soldirt_prisonguard.mdl"
+		"playermodel_skin"	"0"
+		"hands_skin"	"2"
+	}
+
+	"combine_prisonguard_dirty_sg"
+	{
+		"inherits_from"		"combine_soldier_dirty"
+		"playermodel"		"models/combine_soldirt_prisonguard.mdl"
+		"playermodel_skin"	"1"
+		"hands_skin"	"2"
+	}
+ 
+	"combine_elite_dirty"
+	{
+		"inherits_from"		"combine_soldier_dirty"
+		"playermodel"		"models/combine_super_soldirt.mdl"
+		"playermodel_skin"	"1"
+		"hands_skin"	"3"
+	}
+}

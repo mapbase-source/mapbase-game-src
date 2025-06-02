@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------------
+// 
+// Protagonist System - HL2 Base
+// 
+//----------------------------------------------------------------------------
+"Protagonists"
+{
+	// 'BASE_' protagonist entries are meant to be inherited by other classes.
+	"BASE_hl2_c_arms"
+	{
+		"wpn_viewmodels_c"
+		{
+			"weapon_357"		"models/weapons/hl2_c/v_357.mdl"
+			"weapon_ar2"		"models/weapons/hl2_c/v_irifle.mdl"
+			"weapon_bugbait"	"models/weapons/hl2_c/v_bugbait.mdl"
+			"weapon_crossbow"	"models/weapons/hl2_c/v_crossbow.mdl"
+			"weapon_crowbar"	"models/weapons/hl2_c/v_crowbar.mdl"
+			"weapon_frag"		"models/weapons/hl2_c/v_grenade.mdl"
+			"weapon_physcannon"	"models/weapons/hl2_c/v_physcannon.mdl"
+			"weapon_pistol"		"models/weapons/hl2_c/v_pistol.mdl"
+			"weapon_rpg"		"models/weapons/hl2_c/v_rpg.mdl"
+			"weapon_shotgun"	"models/weapons/hl2_c/v_shotgun.mdl"
+			"weapon_slam"		"models/weapons/hl2_c/v_slam.mdl"
+			"weapon_smg1"		"models/weapons/hl2_c/v_smg1.mdl"
+			"weapon_stunstick"	"models/weapons/hl2_c/v_stunstick.mdl"
+		}
+	}
+	
+	"BASE_hl2_no_suit"
+	{
+		"response_contexts"	"silent_suit:1"
+	}
+}

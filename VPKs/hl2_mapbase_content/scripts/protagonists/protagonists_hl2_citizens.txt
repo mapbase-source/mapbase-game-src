@@ -1,0 +1,502 @@
+//----------------------------------------------------------------------------
+// 
+// Protagonist System - HL2 Citizens
+// 
+//----------------------------------------------------------------------------
+"Protagonists"
+{
+	"BASE_citizen"
+	{
+		"inherits_from"		"BASE_hl2_c_arms;BASE_hl2_no_suit"
+		"response_contexts"	"classname:npc_citizen"
+		"team"	"rebels"
+	}
+	
+	//----------------------------------------------------------------------------
+
+	"citizen_male_01"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen1.mdl"
+		"hands_skin"		"1"
+	}
+
+	"citizen_male_02"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_02.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"citizen_male_03"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_03.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen1.mdl"
+		"hands_skin"		"1"
+	}
+
+	"citizen_male_04"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_04.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"citizen_male_05"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_05.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"citizen_male_06"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_06.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"citizen_male_07"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_07.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"citizen_male_08"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_08.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"citizen_male_09"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/male_09.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"citizen_female_01"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/female_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen1.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"citizen_female_02"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/female_02.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen2.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"citizen_female_03"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/female_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen1.mdl" // TODO
+		"hands_skin"		"1"
+	}
+
+	"citizen_female_04"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/female_04.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen2.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"citizen_female_06"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/female_06.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen1.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"citizen_female_07"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group01/female_07.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_citizen2.mdl" // TODO
+		"hands_skin"		"1"
+	}
+	
+	//----------------------------------------------------------------------------
+
+	"refugee_male_01"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee1.mdl"
+		"hands_skin"		"1"
+	}
+
+	"refugee_male_02"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_02.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"refugee_male_03"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_03.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee1.mdl"
+		"hands_skin"		"1"
+	}
+
+	"refugee_male_04"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_04.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"refugee_male_05"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_05.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"refugee_male_06"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_06.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"refugee_male_07"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_07.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"refugee_male_08"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_08.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"refugee_male_09"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/male_09.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"refugee_female_01"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/female_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee1.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"refugee_female_02"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/female_02.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee2.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"refugee_female_03"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/female_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee1.mdl" // TODO
+		"hands_skin"		"1"
+	}
+
+	"refugee_female_04"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/female_04.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee2.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"refugee_female_06"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/female_06.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee1.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"refugee_female_07"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group02/female_07.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_refugee2.mdl" // TODO
+		"hands_skin"		"1"
+	}
+	
+	//----------------------------------------------------------------------------
+
+	"rebel_male_01"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl"
+		"hands_skin"		"4"
+	}
+
+	"rebel_male_02"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_02.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"rebel_male_03"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_03.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel2.mdl"
+		"hands_skin"		"1"
+	}
+
+	"rebel_male_04"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_04.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl"
+		"hands_skin"		"3"
+	}
+
+	"rebel_male_05"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_05.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel2.mdl"
+		"hands_skin"		"2"
+	}
+
+	"rebel_male_06"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_06.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl"
+		"hands_skin"		"3"
+	}
+
+	"rebel_male_07"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_07.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel2.mdl"
+		"hands_skin"		"3"
+	}
+
+	"rebel_male_08"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_08.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"rebel_male_09"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/male_09.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl"
+		"hands_skin"		"2"
+	}
+
+	"rebel_female_01"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/female_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl" // TODO
+		"hands_skin"		"3"
+	}
+
+	"rebel_female_02"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/female_02.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel2.mdl" // TODO
+		"hands_skin"		"3"
+	}
+
+	"rebel_female_03"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/female_03.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl" // TODO
+		"hands_skin"		"4"
+	}
+
+	"rebel_female_04"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/female_04.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel2.mdl" // TODO
+		"hands_skin"		"2"
+	}
+
+	"rebel_female_06"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/female_06.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl" // TODO
+		"hands_skin"		"3"
+	}
+
+	"rebel_female_07"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03/female_07.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_rebel1.mdl" // TODO
+		"hands_skin"		"4"
+	}
+	
+	//----------------------------------------------------------------------------
+
+	"medic_male_01"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic1.mdl"
+		"hands_skin"		"4"
+	}
+
+	"medic_male_02"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_02.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"medic_male_03"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_03.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic1.mdl"
+		"hands_skin"		"4"
+	}
+
+	"medic_male_04"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_04.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"medic_male_05"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_05.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic1.mdl"
+		"hands_skin"		"2"
+	}
+
+	"medic_male_06"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_06.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"medic_male_07"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_07.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"medic_male_08"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_08.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic2.mdl"
+		"hands_skin"		"0"
+	}
+
+	"medic_male_09"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/male_09.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic1.mdl"
+		"hands_skin"		"0"
+	}
+
+	"medic_female_01"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/female_01.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic1.mdl" // TODO
+		"hands_skin"		"2"
+	}
+
+	"medic_female_02"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/female_02.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic2.mdl" // TODO
+		"hands_skin"		"0"
+	}
+
+	"medic_female_03"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/female_03.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic1.mdl" // TODO
+		"hands_skin"		"1"
+	}
+
+	"medic_female_04"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/female_04.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic2.mdl" // TODO
+		"hands_skin"		"3"
+	}
+
+	"medic_female_06"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/female_06.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic2.mdl" // TODO
+		"hands_skin"		"3"
+	}
+
+	"medic_female_07"
+	{
+		"inherits_from"		"BASE_citizen"
+		"playermodel"		"models/humans/group03m/female_07.mdl"
+		"hands"				"models/weapons/hl2_c/c_arms_m_medic1.mdl" // TODO
+		"hands_skin"		"3"
+	}
+}

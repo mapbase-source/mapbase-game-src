@@ -1,0 +1,9 @@
+"ProtagonistsManifest"
+{
+	"file"		"scripts/protagonists/protagonists_hl2_base.txt"
+	"file"		"scripts/protagonists/protagonists_hl2.txt"
+	"file"		"scripts/protagonists/protagonists_hl2_citizens.txt"
+
+	// Keep this at the bottom
+	"file"		"scripts/protagonists/protagonists_mod.txt"
+}
