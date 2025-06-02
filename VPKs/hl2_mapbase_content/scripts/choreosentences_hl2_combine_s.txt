@@ -1,0 +1,264 @@
+//=================================================================
+//
+// Choreo Sentences
+// Mapbase's modern replacement for sentences.txt
+//
+// (This file is a WIP and does not contain every soldier sentence)
+//
+//=================================================================
+
+"ChoreoSentences"
+{
+	//---------------------------------------------------------------------------
+	
+	"SentenceContextPrerequisites"
+	{
+		"soldier_codename"
+		{
+			vscript		"RandomInt(0, 18)"
+		}
+		
+		"soldier_codenum"
+		{
+			vscript		"RandomInt(0, 9)"
+		}
+	}
+	
+	//---------------------------------------------------------------------------
+	
+	"VirtualWords"
+	{
+		//-------------------------------------------------------
+		// Combine Soldier names, remembered by speaker
+		//-------------------------------------------------------
+		
+		V_MYNAMES
+		{
+			condition	"context:soldier_codename"
+			words
+			{
+				0		"leader"
+				1		"flash"
+				2		"ranger"
+				3		"hunter"
+				4		"blade"
+				5		"scar"
+				6		"hammer"
+				7		"sweeper"
+				8		"swift"
+				9		"fist"
+				10		"sword"
+				11		"savage"
+				12		"tracker"
+				13		"slash"
+				14		"razor"
+				15		"stab"
+				16		"spear"
+				17		"striker"
+				18		"dagger"
+			}
+		}
+		
+		V_MYNUMS
+		{
+			condition	"context:soldier_codenum"
+			words
+			{
+				0		"zero"
+				1		"one"
+				2		"two"
+				3		"three"
+				4		"four"
+				5		"five"
+				6		"six"
+				7		"seven"
+				8		"eight"
+				9		"niner"
+			}
+		}
+		
+		//-------------------------------------------------------
+		// Random Combine codes
+		//-------------------------------------------------------
+		
+		// Phonetic alphabet
+		V_RNDCODES
+		{
+			words
+			{
+				0		"apex"
+				1		"ion"
+				2		"jet"
+				3		"kilo"
+				4		"mace"
+				5		"nova"
+				6		"payback"
+				7		"sundown"
+				8		"uniform"
+				9		"boomer"
+				10		"echo"
+				11		"flatline"
+				12		"helix"
+				13		"ice"
+				14		"quicksand"
+				15		"payback"
+				16		"ripcord"
+			}
+		}
+		
+		V_RNDNAMES
+		{
+			words
+			{
+				0		"apex"
+				1		"ion"
+				2		"jet"
+				3		"kilo"
+				4		"mace"
+				5		"nova"
+				6		"payback"
+				7		"sundown"
+				8		"uniform"
+				9		"boomer"
+				10		"echo"
+				11		"flatline"
+				12		"helix"
+				13		"ice"
+				14		"quicksand"
+				15		"payback"
+				16		"ripcord"
+			}
+		}
+		
+		V_RNDNUMS
+		{
+			words
+			{
+				0		"zero"
+				1		"one"
+				2		"two"
+				3		"three"
+				4		"four"
+				5		"five"
+				6		"six"
+				7		"seven"
+				8		"eight"
+				9		"niner"
+			}
+		}
+		
+		//-------------------------------------------------------
+		// Generic Combine numbers
+		//-------------------------------------------------------
+		
+		V_NUMBERSS
+		{
+			words
+			{
+				0		"zero"
+				1		"one"
+				2		"two"
+				3		"three"
+				4		"four"
+				5		"five"
+				6		"six"
+				7		"seven"
+				8		"eight"
+				9		"niner"
+				10		"ten"
+				11		"eleven"
+				12		"twelve"
+				13		"thirteen"
+				14		"fourteen"
+				15		"fifteen"
+				16		"sixteen"
+				17		"seventeen"
+				18		"eighteen"
+				19		"nineteen"
+				20		"twenty"
+				30		"thirty"
+				40		"fourty"
+				50		"fifty"
+				60		"sixty"
+				70		"seventy"
+				80		"eighty"
+				90		"ninety"
+				100		"onehundred"
+				200		"twohundred"
+				300		"threehundred"
+			}
+		}
+		
+		V_DISTS
+		{
+			condition	"dist_to:!enemy"
+			words_from	"V_NUMBERSS"
+		}
+		
+		V_DIRS
+		{
+			condition	"dir_to:!enemy"
+			words_from	"V_NUMBERSS"
+		}
+		
+		V_GRIDXS
+		{
+			condition	"gridx:!enemy"
+			words_from	"V_NUMBERSS"
+		}
+		
+		V_GRIDYS
+		{
+			condition	"gridy:!enemy"
+			words_from	"V_NUMBERSS"
+		}
+		
+		V_SEQGLOBNBRS
+		{
+			condition	"context:enemies_killed"
+			words_from	"V_NUMBERSS"
+		}
+		
+		V_WHODIEDS
+		{
+			condition	"context:speechtarget_soldier_codename"
+			words_from	"V_MYNAMES"
+		}
+		
+		//-------------------------------------------------------
+		// Combine global player
+		//-------------------------------------------------------
+		
+		V_G0_PLAYERS
+		{
+			words
+			{
+				0		"freeman3"
+				1		"anticitizenone"
+				2		"targetone"
+				3		"priority1objective"
+				4		"phantom"
+				5		"ghost2"
+			}
+		}
+	}
+	
+	//---------------------------------------------------------------------------
+	
+	"Sentences"
+	{
+		"npc/combine_soldier/vo/"
+		{
+			COMBINE_REFIND_ENEMY_PATH	"on1 V_WHODIEDS onedown onedown off1; NPC_Combine.Alert"
+			
+			COMBINE_PATH_TEST_PLAYERS	"on1 V_G0_PLAYERS onedown onedown off1; NPC_Combine.Alert"
+			COMBINE_PATH_TEST_MYCODE_1	"on2 V_MYNAMES V_MYNUMS onedown onedown off3; NPC_Combine.Alert"
+			COMBINE_PATH_TEST_MYCODE_2	"on1 overwatch V_MYNAMES V_MYNUMS isatcode V_RNDNUMS off2; NPC_Combine.Alert"
+			COMBINE_PATH_TEST_MYCODE_3	"on2 overwatch, V_MYNAMES V_MYNUMS lostcontact, hardenthatposition off2; NPC_Combine.Alert"
+			
+			COMBINE_PATH_TEST_PITCH		"on1 ripcord (p110) ripcord (p120) ripcord (p130) ripcord (p140) ripcord (p100) off2; NPC_Combine.Alert"
+			COMBINE_PATH_TEST_PITCH2	"on1 ripcord (p90) ripcord (p80) ripcord (p70) ripcord (p60) ripcord (p100) off2; NPC_Combine.Alert"
+			COMBINE_PATH_TEST_PITCH_BLANK	"on1 ripcord ripcord ripcord ripcord ripcord off2; NPC_Combine.Alert"
+		}
+	}
+}

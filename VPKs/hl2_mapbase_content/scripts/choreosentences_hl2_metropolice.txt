@@ -1,0 +1,398 @@
+//=================================================================
+//
+// Choreo Sentences
+// Mapbase's modern replacement for sentences.txt
+//
+// (This file is a WIP and does not contain every metrocop sentence)
+//
+//=================================================================
+
+"ChoreoSentences"
+{
+	//---------------------------------------------------------------------------
+	
+	"SentenceContextPrerequisites"
+	{
+		"police_codename"
+		{
+			vscript		"RandomInt(0, 14)"
+		}
+		
+		"police_codenum"
+		{
+			vscript		"RandomInt(1, 9)"
+		}
+	}
+	
+	//---------------------------------------------------------------------------
+	
+	"VirtualWords"
+	{
+		//-------------------------------------------------------
+		// Metropolice map names
+		//-------------------------------------------------------
+		
+		V_G1_LOCATION_MAP__P
+		{
+			criterion	"map"
+			matches
+			{
+				// map 0
+				default
+				{
+					words
+					{
+						0		"block"
+						1		"zone"
+						2		"sector"
+					}
+				}
+				
+				// map 1
+				*trainstation*
+				{
+					words
+					{
+						0		"stationblock"
+						1		"transitblock"
+						2		"workforceintake"
+					}
+				}
+				
+				// map 2
+				*canals*
+				{
+					words
+					{
+						0		"canalblock"
+						1		"stormsystem"
+						2		"wasteriver"
+						3		"deservicedarea"
+					}
+				}
+				
+				// map 3
+				*eli*
+				{
+					words
+					{
+						0		"industrialzone"
+						1		"restrictedblock"
+						2		"repurposedarea"
+					}
+				}
+				
+				// map 4
+				*town*
+				{
+					words
+					{
+						0		"condemnedzone"
+						1		"infestedzone"
+						2		"nonpatrolregion"
+					}
+				}
+				
+				// map 5
+				*coast*
+				{
+					words
+					{
+						0		"externaljurisdiction"
+						1		"stabilizationjurisdiction"
+						2		"outlandzone"
+					}
+				}
+				
+				// map 6
+				*prison*
+				{
+					words
+					{
+						0		"externaljurisdiction"
+						1		"stabilizationjurisdiction"
+					}
+				}
+				
+				// map 7
+				*c17*
+				{
+					words
+					{
+						0		"residentialblock"
+						1		"404zone"
+						2		"distributionblock"
+						3		"productionblock"
+					}
+				}
+				
+				// map 8
+				*citadel*
+				{
+					words
+					{
+						0		"highpriorityregion"
+						1		"terminalrestrictionzone"
+						2		"controlsection"
+					}
+				}
+			}
+		}
+		
+		V_G2_SUSPECT_MAP__P
+		{
+			criterion	"map"
+			matches
+			{
+				// map 0
+				default
+				{
+					words
+					{
+						0		"subject"
+					}
+				}
+				
+				// map 1
+				*trainstation*
+				{
+					words
+					{
+						0		"citizen"
+						1		"UPI"
+						2		"subject"
+					}
+				}
+				
+				// map 2
+				*canals*
+				{
+					words
+					{
+						0		"subject"
+						1		"noncitizen"
+						2		"sociocide"
+						3		"anticitizen"
+					}
+				}
+				
+				// map 3
+				*eli*
+				{
+					words
+					{
+						0		"anticitizen"
+						1		"subject"
+					}
+				}
+				
+				// map 4
+				*town*
+				{
+					words
+					{
+						0		"freeman"
+						1		"subject"
+						2		"anticitizen"
+					}
+				}
+				
+				// map 5
+				*coast*
+				{
+					words
+					{
+						0		"freeman"
+						1		"sociocide"
+					}
+				}
+				
+				// map 6
+				*prison*
+				{
+					words
+					{
+						0		"freeman"
+						1		"infection"
+					}
+				}
+				
+				// map 7
+				*c17*
+				{
+					words
+					{
+						0		"freeman"
+					}
+				}
+				
+				// map 8
+				*citadel*
+				{
+					words
+					{
+						0		"freeman"
+					}
+				}
+			}
+		}
+		
+		//-------------------------------------------------------
+		// Generic metrocop/overwatch numbers
+		//-------------------------------------------------------
+		
+		V_NUMBERSP
+		{
+			words
+			{
+				0		"zero"
+				1		"one"
+				2		"two"
+				3		"three"
+				4		"four"
+				5		"five"
+				6		"six"
+				7		"seven"
+				8		"eight"
+				9		"nine"
+				10		"ten"
+				11		"eleven"
+				12		"twelve"
+				13		"thirteen"
+				14		"fourteen"
+				15		"fifteen"
+				16		"sixteen"
+				17		"seventeen"
+				18		"eighteen"
+				19		"nineteen"
+				20		"twenty"
+				30		"thirty"
+				40		"fourty"
+				50		"fifty"
+				60		"sixty"
+				70		"seventy"
+				80		"eighty"
+				90		"ninety"
+				100		"onehundred"
+				200		"twohundred"
+				300		"threehundred"
+			}
+		}
+		
+		V_SEQG0_NBRP
+		{
+			// Note that this used its own definitions before
+			condition	"context:enemies_killed"
+			words_from	"V_NUMBERSP"
+		}
+		
+		//-------------------------------------------------------
+		// Random metrocop/overwatch codes
+		//-------------------------------------------------------
+		
+		V_RNDCODECRIM_P
+		{
+			words
+			{
+				0		"criminaltrespass63"
+				1		"nonsanctionedarson51"
+				2		"posession69"
+				3		"publicnoncompliance507"
+				4		"recklessoperation99"
+				5		"resistingpacification148"
+				6		"riot404"
+				7		"fugitive17f"
+				8		"weapon94"
+				9		"alarms62"
+				10		"assault243"
+				11		"illegalcarrying95"
+				12		"unlawfulentry603"
+			}
+		}
+		
+		V_RNDCODEPLR_P
+		{
+			words
+			{
+				0		"attemptedcrime27"
+				1		"disengaged647e"
+				2		"disturbingunity415"
+				3		"disturbancemental10-103m"
+				4		"illegalinoperation63s"
+				5		"threattoproperty51b"
+			}
+		}
+		
+		V_RNDNUMP
+		{
+			words
+			{
+				0		"zero"
+				1		"one"
+				2		"two"
+				3		"three"
+				4		"four"
+				5		"five"
+				6		"six"
+				7		"seven"
+				8		"eight"
+				9		"nine"
+			}
+		}
+		
+		//-------------------------------------------------------
+		// Metropolice names, remembered by speaker
+		//-------------------------------------------------------
+		
+		V_MYNAMEP
+		{
+			condition	"context:police_codename"
+			words
+			{
+				0		"defender"
+				1		"hero"
+				2		"jury"
+				3		"king"
+				4		"line"
+				5		"patrol"
+				6		"quick"
+				7		"roller"
+				8		"stick"
+				9		"tap"
+				10		"union"
+				11		"victor"
+				12		"xray"
+				13		"yellow"
+				14		"vice"
+			}
+		}
+		
+		V_MYNUMP
+		{
+			condition	"context:police_codenum"
+			words
+			{
+				0		"zero"
+				1		"one"
+				2		"two"
+				3		"three"
+				4		"four"
+				5		"five"
+				6		"six"
+				7		"seven"
+				8		"eight"
+				9		"nine"
+			}
+		}
+	}
+	
+	//---------------------------------------------------------------------------
+	
+	"Sentences"
+	{
+		"npc/metropolice/vo/"
+		{
+			METROPOLICE_GO_ALERT_PATH	"on1 designatesuspectas V_G2_SUSPECT_MAP__P allunitscode2 off1; NPC_Combine.Alert"
+		}
+	}
+}

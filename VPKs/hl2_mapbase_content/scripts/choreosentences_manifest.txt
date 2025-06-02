@@ -1,0 +1,9 @@
+choreosentences_manifest
+{
+	"precache_file"		"scripts/choreosentences_base.txt"
+	
+	"precache_file"		"scripts/choreosentences_hl2_combine_s.txt"
+	"precache_file"		"scripts/choreosentences_hl2_metropolice.txt"
+	
+	// Add new files here
+}

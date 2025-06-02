@@ -1,0 +1,29 @@
+//=================================================================
+//
+// Choreo Sentences
+// Mapbase's modern replacement for sentences.txt
+//
+//=================================================================
+
+"ChoreoSentences"
+{
+	//---------------------------------------------------------------------------
+	
+	// Contexts to add to speakers when they have a virtual word that uses one and they don't have it.
+	// These stand in for hardcoded sentences.txt names, such as soldier unit callsigns.
+	"SentenceContextPrerequisites"
+	{
+	}
+	
+	//---------------------------------------------------------------------------
+	
+	"VirtualWords"
+	{
+	}
+	
+	//---------------------------------------------------------------------------
+	
+	"Sentences"
+	{
+	}
+}
