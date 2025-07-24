@@ -742,6 +742,21 @@
 	
 	//==============================
 	//
+	// Mapbase-specific
+	//
+	//==============================
+	HudGenericGameTimer
+	{
+		"fieldName" "HudGenericGameTimer"
+		"visible" "1"
+		"enabled" "1"
+		"wide"	 "640"
+		"tall"	 "480"
+		"zpos" "1"
+	}
+	
+	//==============================
+	//
 	// Below is ported from HL2:DM
 	//
 	//==============================

@@ -1,0 +1,210 @@
+// sample animation script
+//
+//
+// commands:
+//	Animate <panel name> <variable> <target value> <interpolator> <start time> <duration>
+//		variables:
+//			FgColor
+//			BgColor
+//			Position
+//			Size
+//			Blur		(hud panels only)
+//			TextColor	(hud panels only)
+//			Ammo2Color	(hud panels only)
+//			Alpha		(hud weapon selection only)
+//			SelectionAlpha  (hud weapon selection only)
+//			TextScan	(hud weapon selection only)
+//
+//		interpolator:
+//			Linear
+//			Accel - starts moving slow, ends fast
+//			Deaccel - starts moving fast, ends slow
+//
+//	RunEvent <event name> <start time>
+//		starts another even running at the specified time
+//
+//	StopEvent <event name> <start time>
+//		stops another event that is current running at the specified time
+//
+//	StopAnimation <panel name> <variable> <start time>
+//		stops all animations refering to the specified variable in the specified panel
+//
+//	StopPanelAnimations <panel name> <start time>
+//		stops all active animations operating on the specified panel
+//
+//
+// Useful game console commands:
+//	cl_Animationinfo <hudelement name> or <panelname> 
+//		displays all the animatable variables for the hud element
+//
+
+event SuitAuxPowerFourItemsActive
+{
+	// resize the aux power to fit four items
+	Animate HudSuitPower Size			"102 66"			Linear 0.0 0.4	[$WIN32]
+	Animate HudSuitPower Position		"16 360"			Linear 0.0 0.4	[$WIN32]
+	Animate HudSuitPower Size			"102 72"			Linear 0.0 0.4	[$X360]
+	Animate HudSuitPower Position		"48 338"			Linear 0.0 0.4	[$X360]
+}
+
+event SuitAuxPowerFiveItemsActive
+{
+	// resize the aux power to fit five items
+	Animate HudSuitPower Size			"102 76"			Linear 0.0 0.4	[$WIN32]
+	Animate HudSuitPower Position		"16 350"			Linear 0.0 0.4	[$WIN32]
+	Animate HudSuitPower Size			"102 82"			Linear 0.0 0.4	[$X360]
+	Animate HudSuitPower Position		"48 328"			Linear 0.0 0.4	[$X360]
+}
+
+event SuitAuxPowerSixItemsActive
+{
+	// resize the aux power to fit six items
+	Animate HudSuitPower Size			"102 86"			Linear 0.0 0.4	[$WIN32]
+	Animate HudSuitPower Position		"16 340"			Linear 0.0 0.4	[$WIN32]
+	Animate HudSuitPower Size			"102 92"			Linear 0.0 0.4	[$X360]
+	Animate HudSuitPower Position		"48 318"			Linear 0.0 0.4	[$X360]
+}
+
+//-------------------------------
+
+// Number menu
+event MenuOpen
+{
+	StopEvent	MenuClose 0.0 
+
+	// fade in
+	Animate HudMenu Alpha 		"255"		Linear 0.0 0.1
+	Animate HudMenu SelectionAlpha 	"255"		Linear 0.0 0.1
+	Animate HudMenu FgColor		"FgColor"		Linear 0.0 0.1
+	Animate HudMenu MenuColor		"MenuColor"	Linear  0.0 0.1
+	Animate HudMenu MenuItemColor		"MenuItemColor"	Linear 0.0 0.1
+	Animate HudMenu TextScan		"1"		Linear 0.0 0.1
+
+	// Undo any blur
+	Animate HudMenu		Blur		"1"			Linear	0.0		0.01
+}
+
+// Alternate event to draw attention to menu, similar to HUD hint
+event MenuOpenFlash
+{
+	StopEvent	MenuClose 0.0 
+
+	// fade in
+	Animate HudMenu Alpha 		"255"		Linear 0.0 0.3
+	Animate HudMenu SelectionAlpha 	"255"		Linear 0.0 0.3
+	Animate HudMenu FgColor		"FgColor"		Linear 0.0 0.3
+	Animate HudMenu MenuColor		"MenuColor"	Linear  0.0 0.3
+	Animate HudMenu MenuItemColor		"MenuItemColor"	Linear 0.0 0.3
+	Animate HudMenu TextScan		"1"		Linear 0.0 0.3
+
+	// flash text
+	Animate HudMenu MenuItemColor	"255 220 0 255" Linear 1.0 0.2
+	Animate HudMenu MenuItemColor	"MenuItemColor" 	Linear 1.2 0.2
+	Animate HudMenu MenuItemColor	"255 220 0 255" Linear 2.0 0.2
+	Animate HudMenu MenuItemColor	"MenuItemColor" 	Linear 2.2 0.2
+	Animate HudMenu MenuColor	"255 220 0 255" Linear 1.0 0.2
+	Animate HudMenu MenuColor	"MenuColor" 	Linear 1.2 0.2
+	Animate HudMenu MenuColor	"255 220 0 255" Linear 2.0 0.2
+	Animate HudMenu MenuColor	"MenuColor" 	Linear 2.2 0.2
+
+	// Undo any blur
+	Animate HudMenu		Blur		"1"			Linear	0.0		0.01
+}
+
+event MenuClose
+{	
+	// Hide it
+	Animate HudMenu Alpha 		"0" Linear 0.0 1
+	Animate HudMenu SelectionAlpha 	"0" Linear 0.0 1
+	Animate HudMenu FgColor		"0 0 0 0" Linear 0.0 1
+	Animate HudMenu MenuColor		"0 0 0 0" Linear 0.0 1
+	Animate HudMenu MenuItemColor		"0 0 0 0" Linear 0.0 1
+}
+
+event MenuPulse
+{
+	Animate HudMenu		Blur		"7"			Linear	0.0		0.1
+	Animate HudMenu		Blur		"2"			Deaccel	0.1		0.1
+	Animate HudMenu		Blur		"7"			Linear	0.2		0.1
+	Animate HudMenu		Blur		"2"			Deaccel	0.3		0.1
+	Animate HudMenu		Blur		"7"			Linear	0.4		0.1
+	Animate HudMenu		Blur		"2"			Deaccel	0.5		0.1
+	Animate	HudMenu		Blur		"1"			Deaccel	0.6		0.4
+}
+
+//-------------------------------
+
+event GenericGameTimerShow
+{
+	StopEvent	GenericGameTimerClose 0.0 
+
+	// fade in
+	Animate HudGenericGameTimer Alpha 		"255"		Linear 0.0 0.1
+	Animate HudGenericGameTimer FgColor		"FgColor"	Linear 0.0 0.1
+	Animate HudGenericGameTimer TimerBoxColor		"TimerBoxColor"	Linear 0.0 0.1
+	Animate HudGenericGameTimer TextColor		"TextColor"	Linear 0.0 0.1
+	Animate HudGenericGameTimer NumberColor	"NumberColor"	Linear 0.0 0.1
+
+	// Undo any blur
+	Animate HudGenericGameTimer		Blur		"1"			Linear	0.0		0.01
+}
+
+// Alternate event to draw attention to menu, similar to HUD hint
+event GenericGameTimerShowFlash
+{
+	StopEvent	GenericGameTimerClose 0.0 
+
+	// fade in
+	Animate HudGenericGameTimer Alpha 		"255"		Linear 0.0 0.3
+	Animate HudGenericGameTimer FgColor		"FgColor"	Linear 0.0 0.3
+	Animate HudGenericGameTimer TimerBoxColor		"TimerBoxColor"	Linear 0.0 0.3
+	Animate HudGenericGameTimer TextColor		"TextColor"	Linear 0.0 0.3
+	Animate HudGenericGameTimer NumberColor	"NumberColor"	Linear 0.0 0.3
+
+	// flash text
+	Animate HudGenericGameTimer FgColor	"255 220 0 255" Linear 1.0 0.2
+	Animate HudGenericGameTimer FgColor	"FgColor" 	Linear 1.2 0.2
+	Animate HudGenericGameTimer FgColor	"255 220 0 255" Linear 2.0 0.2
+	Animate HudGenericGameTimer FgColor	"FgColor" 	Linear 2.2 0.2
+
+	// Undo any blur
+	Animate HudGenericGameTimer		Blur		"1"			Linear	0.0		0.01
+}
+
+event GenericGameTimerClose
+{	
+	// Hide it
+	Animate HudGenericGameTimer Alpha 		"0" Linear 0.0 1
+	Animate HudGenericGameTimer FgColor		"0 0 0 0" Linear 0.0 1
+	Animate HudGenericGameTimer TimerBoxColor		"0 0 0 0" Linear 0.0 1
+	Animate HudGenericGameTimer TextColor		"0 0 0 0" Linear 0.0 1
+	Animate HudGenericGameTimer NumberColor		"0 0 0 0" Linear 0.0 1
+}
+
+event GenericGameTimerPulse
+{
+	// flash text
+	Animate HudGenericGameTimer FgColor	"255 220 0 255" Linear 0.0 0.2
+	Animate HudGenericGameTimer FgColor	"FgColor" 	Linear 0.2 0.2
+	Animate HudGenericGameTimer FgColor	"255 220 0 255" Linear 1.0 0.2
+	Animate HudGenericGameTimer FgColor	"FgColor" 	Linear 1.2 0.2
+	Animate HudGenericGameTimer FgColor	"255 220 0 255" Linear 2.0 0.2
+	Animate HudGenericGameTimer FgColor	"FgColor" 	Linear 2.2 0.2
+}
+
+event GenericGameTimerPulseOnce
+{
+	// flash text
+	Animate HudGenericGameTimer FgColor	"255 220 0 255" Linear 0.0 0.2
+	Animate HudGenericGameTimer FgColor	"FgColor" 	Linear 0.2 0.2
+}
+
+event GenericGameTimerWarn
+{
+	Animate HudGenericGameTimer FgColor	"255 64 64 255"	Linear 0.0 1.0
+}
+
+event GenericGameTimerUnwarn
+{
+	Animate HudGenericGameTimer FgColor	"FgColor"	Linear 0.0 1.0
+}
