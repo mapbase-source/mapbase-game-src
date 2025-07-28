@@ -27,6 +27,9 @@ WeaponData
 		"melee_miss"		"Weapon_StunStick.Melee_Miss"
 		"melee_hit"			"Weapon_StunStick.Melee_Hit"
 		"melee_hit_world"	"Weapon_StunStick.Melee_HitWorld"
+
+		"special1"		"Weapon_StunStick.Activate"
+		"special2"		"Weapon_StunStick.Deactivate"
 	}
 
 	// Weapon Sprite data is loaded by the Client DLL.
