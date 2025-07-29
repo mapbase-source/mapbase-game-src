@@ -243,6 +243,8 @@ then
 	echo "base.fgd copied"
 	cp ${SOURCE_FGDS_DIR}/halflife2.fgd ${BUILD_DIR}/mapbase_shared/shared_misc/bin
 	echo "halflife2.fgd copied"
+	cp ${SOURCE_FGDS_DIR}/hammerplusplus_fgd_mapbase.fgd ${BUILD_DIR}/mapbase_shared/shared_misc/bin
+	echo "hammerplusplus_fgd_mapbase.fgd copied"
 fi
 
 echo "====================="
