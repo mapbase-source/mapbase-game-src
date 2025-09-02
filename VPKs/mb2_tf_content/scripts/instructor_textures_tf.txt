@@ -1,0 +1,283 @@
+"sprites/640_hud"
+{
+	TextureData
+	{
+		// 
+		// TF2 Instructor Hint Textures
+		// 
+
+		//Sheet 1 - Row 1
+		"tf_game_logo"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"0"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_game_logo_orange"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"128"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_clock"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"256"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_payload"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"384"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_intelligence"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"512"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_arrow_clockwise"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"640"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_red_team"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"768"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_blu_team"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"896"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+
+		//Sheet 1 - Row 2
+		"tf_control_point"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"0"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_point_a"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"128"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_point_b"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"256"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_point_c"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"384"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_point_d"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"512"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_point_e"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"640"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_locked"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"768"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_unlocked"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"896"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+
+		//Sheet 1 - Row 3
+		"tf_scout"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"0"
+				"y"			"256"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_soldier"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"128"
+				"y"			"256"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_pyro"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"256"
+				"y"			"256"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_demoman"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"384"
+				"y"			"256"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_heavyweapons"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"512"
+				"y"			"256"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_engineer"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"640"
+				"y"			"256"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_medic"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"768"
+				"y"			"256"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_sniper"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"896"
+				"y"			"256"
+				"width"		"128"
+				"height"	"128"
+		}
+
+		//Sheet 1 - Row 4
+		"tf_spy"
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet_tf2_1"
+				"x"			"0"
+				"y"			"384"
+				"width"		"128"
+				"height"	"128"
+		}
+		
+		// Legacy support: These are aliases for base textures now
+		"tf_caution" // icon_caution
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet1"
+				"x"			"128"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_arrow_right" // icon_arrow_right
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet1"
+				"x"			"384"
+				"y"			"384"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_arrow_up" // icon_arrow_up
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet1"
+				"x"			"256"
+				"y"			"384"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_arrow_down" // icon_arrow_plain_white_dn
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet1"
+				"x"			"0"
+				"y"			"384"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_no" // icon_no
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet1"
+				"x"			"256"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_exclamation" // icon_alert
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet1"
+				"x"			"256"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_exclamation_red" // icon_alert_red
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet1"
+				"x"			"384"
+				"y"			"0"
+				"width"		"128"
+				"height"	"128"
+		}
+		"tf_run" // icon_run
+		{
+				"file"		"vgui/hud/gameinstructor_iconsheet1"
+				"x"			"384"
+				"y"			"128"
+				"width"		"128"
+				"height"	"128"
+		}
+	}	
+}

@@ -78,11 +78,20 @@
 		"hint_forcecaption"			"bool"		// if true, the hint caption will show even if the hint is occluded
 		"hint_local_player_only"	"bool"		// if true, only the local player will see the hint
 		"hint_start_sound"			"string"	// Mapbase - the sound to play when the hint is opened
-		"hint_target_pos"			"short"	// Mapbase - where the icon should be when there's a hint target
+		"hint_target_pos"			"short"		// Mapbase - where the icon should be when there's a hint target
+		"hint_ent_spawnflags"		"long"		// Mapbase - env_instructor_hint entity spawnflags
+		"hint_ent_team"				"short"		// Mapbase - env_instructor_hint entity teamnum
 	}
 	
 	"instructor_server_hint_stop" //destroys a server/map created hint
 	{
 		"hint_name"					"string"	// The hint to stop. Will stop ALL hints with this name
+	}
+	
+	// Signals when a new potential use target is acquired
+	// Same name as an event in L4D
+	"use_target"
+	{
+		"targetid"	"short"		// Entindex of the use target
 	}
 }

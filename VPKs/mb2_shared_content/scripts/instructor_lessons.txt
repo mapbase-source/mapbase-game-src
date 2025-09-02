@@ -84,6 +84,8 @@
 				"force_caption ?set"			"bool hint_forcecaption"
 				"start_sound ?set"			"string hint_start_sound"
 				"icon_target_pos ?set"			"int hint_target_pos"
+				"ent_spawnflags ?set"			"int hint_ent_spawnflags"
+				"ent_team ?set"				"int hint_ent_team"
 			}
 			
 			// Local player only version
@@ -114,6 +116,8 @@
 				"force_caption ?set"			"bool hint_forcecaption"
 				"start_sound ?set"			"string hint_start_sound"
 				"icon_target_pos ?set"			"int hint_target_pos"
+				"ent_spawnflags ?set"			"int hint_ent_spawnflags"
+				"ent_team ?set"				"int hint_ent_team"
 			}
 		}
 		
