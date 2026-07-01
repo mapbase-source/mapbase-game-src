@@ -1,28 +1,88 @@
 
+local format = format;
+local tmp = { name = null }
+
 foreach ( key, val in this )
 {
 	if ( typeof val == "class" )
 	{
-		sqdbg_define_class( val, { name = key } );
+		tmp.name = key;
+		sqdbg_define_class( val, tmp );
 	}
 }
 
-local GetNetPropString = function( key ) { return ::NetProps.GetPropString( this, key ); }
+local GetNetPropString = function( key      ) { return ::NetProps.GetPropString( this, key      ); }
 local SetNetPropString = function( key, val ) { return ::NetProps.SetPropString( this, key, val ); }
-local GetNetPropInt = function( key ) { return ::NetProps.GetPropInt( this, key ); }
-local SetNetPropInt = function( key, val ) { return ::NetProps.SetPropInt( this, key, val ); }
-local GetNetPropFloat = function( key ) { return ::NetProps.GetPropFloat( this, key ); }
-local SetNetPropFloat = function( key, val ) { return ::NetProps.SetPropFloat( this, key, val ); }
-local GetNetPropVector = function( key ) { return ::NetProps.GetPropVector( this, key ); }
+local GetNetPropInt    = function( key      ) { return ::NetProps.GetPropInt   ( this, key      ); }
+local SetNetPropInt    = function( key, val ) { return ::NetProps.SetPropInt   ( this, key, val ); }
+local GetNetPropFloat  = function( key      ) { return ::NetProps.GetPropFloat ( this, key      ); }
+local SetNetPropFloat  = function( key, val ) { return ::NetProps.SetPropFloat ( this, key, val ); }
+local GetNetPropVector = function( key      ) { return ::NetProps.GetPropVector( this, key      ); }
 local SetNetPropVector = function( key, val ) { return ::NetProps.SetPropVector( this, key, val ); }
-local GetNetPropEntity = function( key ) { return ::NetProps.GetPropEntity( this, key ); }
+local GetNetPropEntity = function( key      ) { return ::NetProps.GetPropEntity( this, key      ); }
 local SetNetPropEntity = function( key, val ) { return ::NetProps.SetPropEntity( this, key, val ); }
+
+local CArrayAccessor = class
+{
+	// Implementation note:
+	// Native array elements are going to be listed as custom members of this accessor class.
+	// Indicate to the debugger that this class is going to have non-string
+	// members by having existing member names to be escaped
+	// so that custom number members are evaluated as numbers.
+	["members\0"] = null;
+	count = 0;
+	type = "";
+	ent = null;
+	key = null;
+	iget = null;
+	iset = null;
+
+	constructor ( ent, key, type, count = 0 )
+	{
+		this.ent = ent;
+		this.key = key;
+		this.type = type;
+		local maxcount = ::NetProps.GetPropArraySize( ent, key );
+		if ( count < maxcount )
+			count = maxcount;
+		this.count = count;
+		iget = format("GetProp%sArray", type);
+		iset = format("SetProp%sArray", type);
+		local arr = this["members\0"] = ::array( count );
+		foreach ( i, v in arr )
+			arr[i] = { name = i, get = get, set = set };
+	}
+
+	get = function( i    ) { return ::NetProps[iget]( ent, key, i    ); }
+	set = function( i, v ) { return ::NetProps[iset]( ent, key, v, i ); }
+}
+
+CArrayAccessor._get <- CArrayAccessor.get;
+CArrayAccessor._set <- CArrayAccessor.set;
+
+sqdbg_define_class( CArrayAccessor,
+{
+	name = "CArrayAccessor",
+	value = function() { return format("%s[%d]", type, count); },
+	custommembers = function() { return this["members\0"]; },
+} );
+
+local GetNetPropEntityArray = function( key ) { return CArrayAccessor( this, key, "Entity" ); }
 
 if ( SERVER_DLL )
 {
 	local baseentity_custommembers =
 	[
 		{ name = "m_vecOrigin", get = GetNetPropVector, set = SetNetPropVector },
+		// To be able to add data breakpoints on Vector or array elements,
+		// define indices as members
+		/*
+		{
+			name = "m_vecOrigin[2]",
+			get = function() { return ::NetProps.GetPropFloatArray( this, "m_vecOrigin", 2 ); },
+			set = function( val ) { return ::NetProps.SetPropFloatArray( this, "m_vecOrigin", val, 2 ); }
+		},
+		*/
 		{ name = "m_angRotation", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_vecAbsOrigin", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_angAbsRotation", get = GetNetPropVector, set = SetNetPropVector },
@@ -66,7 +126,10 @@ if ( SERVER_DLL )
 		{ name = "m_Collision.m_nSolidType", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Collision.m_usSolidFlags", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Collision.m_nSurroundType", get = GetNetPropInt, set = SetNetPropInt },
+		{ name = "m_Collision.m_flRadius", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_Collision.m_triggerBloat", get = GetNetPropInt, set = SetNetPropInt },
+		{ name = "m_Collision.m_vecSurroundingMins", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Collision.m_vecSurroundingMaxs", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_Collision.m_vecSpecifiedSurroundingMinsPreScaled", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_Collision.m_vecSpecifiedSurroundingMaxsPreScaled", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_Collision.m_vecSpecifiedSurroundingMins", get = GetNetPropVector, set = SetNetPropVector },
@@ -76,6 +139,7 @@ if ( SERVER_DLL )
 	local baseanimating_custommembers = (clone baseentity_custommembers).extend(
 	[
 		{ name = "m_flGroundSpeed", get = GetNetPropFloat, set = SetNetPropFloat },
+		{ name = "m_flLastEventCheck", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_nSequence", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_bSequenceFinished", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_bSequenceLoops", get = GetNetPropInt, set = SetNetPropInt },
@@ -86,6 +150,7 @@ if ( SERVER_DLL )
 		{ name = "m_flCycle", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_hLightingOrigin", get = GetNetPropEntity, set = SetNetPropEntity },
 		{ name = "m_hLightingOriginRelative", get = GetNetPropEntity, set = SetNetPropEntity },
+		{ name = "m_flFadeScale", get = GetNetPropFloat, set = SetNetPropFloat },
 	]);
 
 	local basecombatcharacter_custommembers = (clone baseanimating_custommembers).extend(
@@ -93,8 +158,11 @@ if ( SERVER_DLL )
 		{ name = "m_flNextAttack", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_flFieldOfView", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_LastHitGroup", get = GetNetPropInt, set = SetNetPropInt },
+		{ name = "m_flDamageAccumulator", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_CurrentWeaponProficiency", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_hActiveWeapon", get = GetNetPropEntity, set = SetNetPropEntity },
+		{ name = "m_bPreventWeaponPickup", get = GetNetPropInt, set = SetNetPropInt },
+		{ name = "m_hMyWeapons", get = GetNetPropEntityArray },
 	]);
 
 	local player_custommembers = (clone basecombatcharacter_custommembers).extend(
@@ -109,7 +177,6 @@ if ( SERVER_DLL )
 		{ name = "m_afButtonForced", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_flStepSoundTime", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_flSwimSoundTime", get = GetNetPropFloat, set = SetNetPropFloat },
-		{ name = "m_surfaceFriction", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_iFOV", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_iFOVStart", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_flFOVTime", get = GetNetPropFloat, set = SetNetPropFloat },
@@ -163,6 +230,7 @@ if ( SERVER_DLL )
 		},
 		{ name = "m_hPostProcessCtrl", get = GetNetPropEntity, set = SetNetPropEntity },
 		{ name = "m_hColorCorrectionCtrl", get = GetNetPropEntity, set = SetNetPropEntity },
+		{ name = "m_hLocatorTargetEntity", get = GetNetPropEntity, set = SetNetPropEntity },
 		{ name = "pl.v_angle", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_Local.m_iHideHUD", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Local.m_flFOVRate", get = GetNetPropFloat, set = SetNetPropFloat },
@@ -218,6 +286,14 @@ if ( SERVER_DLL )
 		{ name = "m_Local.m_TonemapParams.m_flBloomScale", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_Local.m_TonemapParams.m_flAutoExposureMin", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_Local.m_TonemapParams.m_flAutoExposureMax", get = GetNetPropFloat, set = SetNetPropFloat },
+		{ name = "m_Local.m_audio.localSound[0]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[1]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[2]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[3]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[4]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[5]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[6]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[7]", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_Local.m_audio.soundscapeIndex", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Local.m_audio.localBits", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Local.m_audio.ent", get = GetNetPropEntity, set = SetNetPropEntity },
@@ -252,6 +328,14 @@ if ( SERVER_DLL )
 		{ name = "m_LowerWeaponTimer.m_next", get = GetNetPropFloat, set = SetNetPropFloat },
 	]);
 
+	local basecombatweapon_custommembers = (clone baseanimating_custommembers).extend(
+	[
+		{ name = "m_iViewModelIndex", get = GetNetPropInt, set = SetNetPropInt },
+		{ name = "LocalActiveWeaponData.m_flNextPrimaryAttack", get = GetNetPropFloat, set = SetNetPropFloat },
+		{ name = "LocalActiveWeaponData.m_flNextSecondaryAttack", get = GetNetPropFloat, set = SetNetPropFloat },
+		{ name = "LocalActiveWeaponData.m_flTimeWeaponIdle", get = GetNetPropFloat, set = SetNetPropFloat },
+	]);
+
 	sqdbg_define_class( CBaseEntity,
 	{
 		value = CBaseEntity.tostring,
@@ -271,6 +355,11 @@ if ( SERVER_DLL )
 	sqdbg_define_class( CBasePlayer,
 	{
 		custommembers = player_custommembers
+	} );
+
+	sqdbg_define_class( CBaseCombatWeapon,
+	{
+		custommembers = basecombatweapon_custommembers
 	} );
 
 	sqdbg_define_class( IPhysicsObject,
@@ -352,7 +441,7 @@ else if ( CLIENT_DLL )
 		{ name = "m_iTextureFrameIndex", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_nRenderMode", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_nRenderFX", get = GetNetPropInt, set = SetNetPropInt },
-		{ name = "m_fEffects", get = GetNetPropInt, set = SetNetPropInt },
+		{ name = "m_fEffects", get = C_BaseEntity.GetEffects, set = C_BaseEntity.SetEffects },
 		{ name = "m_fFlags", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_iEFlags", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_clrRender", get = GetNetPropInt, set = SetNetPropInt },
@@ -365,7 +454,7 @@ else if ( CLIENT_DLL )
 		{ name = "m_flShadowCastDistance", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_hOwnerEntity", get = GetNetPropEntity, set = SetNetPropEntity },
 		{ name = "m_hEffectEntity", get = GetNetPropEntity, set = SetNetPropEntity },
-		{ name = "m_hMoveParent", get = GetNetPropEntity },
+		{ name = "m_hMoveParent", get = C_BaseEntity.GetMoveParent },
 		{ name = "m_hNetworkMoveParent", get = GetNetPropEntity },
 		{ name = "m_iParentAttachment", get = GetNetPropInt },
 		{ name = "m_MoveType", get = GetNetPropInt, set = SetNetPropInt },
@@ -378,7 +467,7 @@ else if ( CLIENT_DLL )
 		{ name = "m_Collision.m_vecMaxs", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_Collision.m_nSolidType", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Collision.m_usSolidFlags", get = GetNetPropInt, set = SetNetPropInt },
-		{ name = "m_Collision.m_nSurroundType", get = GetNetPropInt, set = SetNetPropInt },
+		//{ name = "m_Collision.m_nSurroundType", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Collision.m_triggerBloat", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Collision.m_vecSpecifiedSurroundingMinsPreScaled", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_Collision.m_vecSpecifiedSurroundingMaxsPreScaled", get = GetNetPropVector, set = SetNetPropVector },
@@ -472,6 +561,14 @@ else if ( CLIENT_DLL )
 		{ name = "m_Local.m_TonemapParams.m_flBloomScale", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_Local.m_TonemapParams.m_flAutoExposureMin", get = GetNetPropFloat, set = SetNetPropFloat },
 		{ name = "m_Local.m_TonemapParams.m_flAutoExposureMax", get = GetNetPropFloat, set = SetNetPropFloat },
+		{ name = "m_Local.m_audio.localSound[0]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[1]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[2]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[3]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[4]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[5]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[6]", get = GetNetPropVector, set = SetNetPropVector },
+		{ name = "m_Local.m_audio.localSound[7]", get = GetNetPropVector, set = SetNetPropVector },
 		{ name = "m_Local.m_audio.soundscapeIndex", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Local.m_audio.localBits", get = GetNetPropInt, set = SetNetPropInt },
 		{ name = "m_Local.m_audio.ent", get = GetNetPropEntity, set = SetNetPropEntity },
@@ -518,14 +615,20 @@ else if ( CLIENT_DLL )
 	{
 		value = function()
 		{
-			return ::format( "(%s) %d %d %d %d", GetName(), GetXPos(), GetYPos(), GetWide(), GetTall() );
+			return format( "(%s) %d %d %d %d", GetName(), GetXPos(), GetYPos(), GetWide(), GetTall() );
 		}
 	} );
 }
 
 sqdbg_define_class( Vector,
 {
-	value = Vector.ToKVString,
+	value = function()
+	{
+		local FLT_MAX = 3.40282347e+38;
+		if ( x == FLT_MAX && y == FLT_MAX && z == FLT_MAX )
+			return "vec3_invalid";
+		return ToKVString();
+	},
 	metamembers = [ "x", "y", "z" ]
 } );
 
@@ -536,8 +639,8 @@ sqdbg_define_class( CGameTrace,
 	{
 		local ent = Entity();
 		if ( ent )
-			return ::format( "%f, %s", Fraction(), ""+ent );
-		return ::format( "%f", Fraction() );
+			return format( "%f, %s", Fraction(), ""+ent );
+		return format( "%f", Fraction() );
 	},
 	custommembers =
 	[
@@ -552,9 +655,56 @@ sqdbg_define_class( CGameTrace,
 	]
 } );
 
+sqdbg_define_class( CTakeDamageInfo,
+{
+	value = function() { return "m_flDamage = " + GetDamage(); },
+	custommembers =
+	[
+		{ name = "m_vecDamageForce", get = CTakeDamageInfo.GetDamageForce, set = CTakeDamageInfo.SetDamageForce },
+		{ name = "m_vecDamagePosition", get = CTakeDamageInfo.GetDamagePosition, set = CTakeDamageInfo.SetDamagePosition },
+		{ name = "m_vecReportedPosition", get = CTakeDamageInfo.GetReportedPosition, set = CTakeDamageInfo.SetReportedPosition },
+		{ name = "m_hInflictor", get = CTakeDamageInfo.GetInflictor, set = CTakeDamageInfo.SetInflictor },
+		{ name = "m_hAttacker", get = CTakeDamageInfo.GetAttacker, set = CTakeDamageInfo.SetAttacker },
+		{ name = "m_hWeapon", get = CTakeDamageInfo.GetWeapon, set = CTakeDamageInfo.SetWeapon },
+		{ name = "m_flDamage", get = CTakeDamageInfo.GetDamage, set = CTakeDamageInfo.SetDamage },
+		{ name = "m_flMaxDamage", get = CTakeDamageInfo.GetMaxDamage, set = CTakeDamageInfo.SetMaxDamage },
+		{ name = "m_flBaseDamage", get = CTakeDamageInfo.GetBaseDamage, set = SetNetPropFloat },
+		{ name = "m_flDamageBonus", get = CTakeDamageInfo.GetDamageBonus, set = CTakeDamageInfo.SetDamageBonus },
+		{ name = "m_bitsDamageType", get = CTakeDamageInfo.GetDamageType, set = CTakeDamageInfo.SetDamageType },
+		{ name = "m_iDamageCustom", get = CTakeDamageInfo.GetDamageCustom, set = CTakeDamageInfo.SetDamageCustom },
+		{ name = "m_iDamageStats", get = CTakeDamageInfo.GetDamageStats, set = CTakeDamageInfo.SetDamageStats },
+		{ name = "m_iAmmoType", get = CTakeDamageInfo.GetAmmoType, set = CTakeDamageInfo.SetAmmoType },
+		{ name = "m_iDamagedOtherPlayers", get = CTakeDamageInfo.GetDamagedOtherPlayers, set = CTakeDamageInfo.SetDamagedOtherPlayers },
+		{ name = "m_iPlayerPenetrationCount", get = CTakeDamageInfo.GetPlayerPenetrationCount, set = CTakeDamageInfo.SetPlayerPenetrationCount },
+		{ name = "m_bForceFriendlyFire", get = CTakeDamageInfo.IsForceFriendlyFire, set = CTakeDamageInfo.SetForceFriendlyFire },
+	]
+} );
+
+sqdbg_define_class( FireBulletsInfo_t,
+{
+	value = function() { return "m_flDamage = " + GetDamage(); },
+	custommembers =
+	[
+		{ name = "m_iShots", get = FireBulletsInfo_t.GetShots, set = FireBulletsInfo_t.SetShots },
+		{ name = "m_vecSrc", get = FireBulletsInfo_t.GetSource, set = FireBulletsInfo_t.SetSource },
+		{ name = "m_vecDirShooting", get = FireBulletsInfo_t.GetDirShooting, set = FireBulletsInfo_t.SetDirShooting },
+		{ name = "m_vecSpread", get = FireBulletsInfo_t.GetSpread, set = FireBulletsInfo_t.SetSpread },
+		{ name = "m_flDistance", get = FireBulletsInfo_t.GetDistance, set = FireBulletsInfo_t.SetDistance },
+		{ name = "m_iAmmoType", get = FireBulletsInfo_t.GetAmmoType, set = FireBulletsInfo_t.SetAmmoType },
+		{ name = "m_iTracerFreq", get = FireBulletsInfo_t.GetTracerFreq, set = FireBulletsInfo_t.SetTracerFreq },
+		{ name = "m_flDamage", get = FireBulletsInfo_t.GetDamage, set = FireBulletsInfo_t.SetDamage },
+		{ name = "m_iPlayerDamage", get = FireBulletsInfo_t.GetPlayerDamage, set = FireBulletsInfo_t.SetPlayerDamage },
+		{ name = "m_nFlags", get = FireBulletsInfo_t.GetFlags, set = FireBulletsInfo_t.SetFlags },
+		{ name = "m_flDamageForceScale", get = FireBulletsInfo_t.GetDamageForceScale, set = FireBulletsInfo_t.SetDamageForceScale },
+		{ name = "m_pAttacker", get = FireBulletsInfo_t.GetAttacker, set = FireBulletsInfo_t.SetAttacker },
+		{ name = "m_pAdditionalIgnoreEnt", get = FireBulletsInfo_t.GetAdditionalIgnoreEnt, set = FireBulletsInfo_t.SetAdditionalIgnoreEnt },
+		{ name = "m_bPrimaryAttack", get = FireBulletsInfo_t.GetPrimaryAttack, set = FireBulletsInfo_t.SetPrimaryAttack },
+	]
+} );
+
 sqdbg_define_class( cplane_t,
 {
-	value = function() { return ::format( "[%s], %f", normal.ToKVString(), dist ); },
+	value = function() { return format( "[%s] %f", normal.ToKVString(), dist ); },
 	metamembers = [ "normal", "dist" ]
 } );
 
@@ -598,9 +748,14 @@ sqdbg_define_class( EmitSound_t,
 		{ name = "m_flVolume", get = EmitSound_t.GetVolume, set = EmitSound_t.SetVolume },
 		{ name = "m_SoundLevel", get = EmitSound_t.GetSoundLevel, set = EmitSound_t.SetSoundLevel },
 		{ name = "m_nFlags", get = EmitSound_t.GetFlags, set = EmitSound_t.SetFlags },
+		{ name = "m_nPitch", get = EmitSound_t.GetPitch, set = EmitSound_t.SetPitch },
 		{ name = "m_nSpecialDSP", get = EmitSound_t.GetSpecialDSP, set = EmitSound_t.SetSpecialDSP },
 		{ name = "m_flSoundTime", get = EmitSound_t.GetSoundTime, set = EmitSound_t.SetSoundTime },
-		{ name = "m_pOrigin", get = EmitSound_t.GetOrigin, set = EmitSound_t.SetOrigin },
+		{
+			name = "m_pOrigin",
+			get = function() { if ( HasOrigin() ) return GetOrigin(); },
+			set = EmitSound_t.SetOrigin
+		},
 	]
 } );
 
